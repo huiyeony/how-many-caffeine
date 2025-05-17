@@ -1,94 +1,80 @@
 export const data = [
   {
-    Name: "메가커피",
-    R: 204.2,
-    L: 290.8,
-    Decaf: 10.8,
+    name: "매머드커피",
+    caffeine: 243,
+  },
+  {
+    name: "백다방",
+    caffeine: 237,
+  },
+  {
+    name: "카페봄봄",
+    caffeine: 209.6,
+  },
+  {
+    name: "파리바게트",
+    caffeine: 207,
+  },
+  {
+    name: "바나다커피",
+    caffeine: 205,
+  },
+  {
+    name: "메가커피",
+    caffeine: 204.2,
+  },
+  {
+    name: "바나프레소",
+    caffeine: 203.4,
+  },
+  {
+    name: "더벤티",
+    caffeine: 192,
+  },
+
+  {
+    name: "투썸플레이스",
+    caffeine: 184,
+  },
+  {
+    name: "하삼동커피",
+    caffeine: 181,
+  },
+
+  {
+    name: "폴바셋",
+    caffeine: 160,
+  },
+  {
+    name: "이디야",
+    caffeine: 158,
   },
   {
     Name: "컴포즈",
-    R: 156,
-    L: 312,
-    Decaf: 12,
+    caffeine: 156,
   },
   {
-    Name: "스타벅스",
-    R: 150,
+    name: "할리스",
+    caffeine: 153,
   },
   {
-    Name: "바나프레소",
-    R: 203.4,
+    name: "스타벅스",
+    caffeine: 150,
   },
   {
-    Name: "이디야",
-    R: 158,
-    L: 237,
-    Decaf: 9,
+    name: "카페게이트",
+    caffeine: 137.5,
   },
   {
-    Name: "파리바게트",
-    R: 207,
+    name: "달콤커피",
+    caffeine: 136,
   },
   {
-    Name: "백다방",
-    R: 237,
+    name: "배스킨라빈스",
+    caffeine: 131,
   },
   {
-    Name: "더벤티",
-    R: 192,
-    Decaf: 26,
-  },
-  {
-    Name: "카페봄봄",
-    R: 209.6,
-  },
-  {
-    Name: "투썸플레이스",
-    R: 184,
-    Decaf: 8,
-  },
-  {
-    Name: "매머드커피",
-    R: 243,
-    Decaf: 2.5,
-  },
-  {
-    Name: "공차",
-    R: 129,
-    L: 171,
-  },
-  {
-    Name: "하삼동커피",
-    R: 181,
-    Decaf: 21,
-  },
-  {
-    Name: "카페게이트",
-    R: 137.5,
-  },
-  {
-    Name: "폴바셋",
-    R: 160,
-  },
-  {
-    Name: "바나다커피",
-    R: 205,
-  },
-  {
-    Name: "배스킨라빈스",
-    R: 131,
-    L: 158,
-    Decaf: 2,
-  },
-  {
-    Name: "할리스",
-    R: 153,
-    Decaf: 3,
-  },
-  {
-    Name: "달콤커피",
-    R: 136,
-    L: 204,
-    Decaf: 204,
+    name: "공차",
+    caffeine: 129,
   },
 ];
