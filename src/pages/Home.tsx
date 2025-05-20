@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { data } from "../data/coffee.data";
 const MAX_COFFEE = 400;
 import "./Home.css";
 export const Home = () => {
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [checked, setChecked] = useState(false);
   const onChange = () => {
     setChecked(!checked);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, [search]);
   const filteredData = data.filter((item) =>
-    item.name?.toLowerCase().includes(search.toLowerCase())
+    item.name?.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
   return (
     <div className="container">
@@ -36,8 +44,9 @@ export const Home = () => {
           const bar_width = checked
             ? (item.caffeine / 2 / MAX_COFFEE) * 100
             : (item.caffeine / MAX_COFFEE) * 100;
+          console.log(item.name);
           return (
-            <div className="bar-row" key={index}>
+            <div className="bar-row" key={item.name}>
               <div className="bar-label">{item.name} </div>
               <div className="bar-wrapper">
                 <div

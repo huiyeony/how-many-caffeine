@@ -50,7 +50,7 @@ export const data = [
     caffeine: 158,
   },
   {
-    Name: "컴포즈",
+    name: "컴포즈",
     caffeine: 156,
   },
   {
