@@ -22,6 +22,13 @@ export const Home = () => {
   return (
     <div className="container">
       <h2>💁‍♀️카페인 함량 비교☕️</h2>
+      <span className="desc">
+        2샷 Ice 아메리카노 카페인 함량입니다. (연하게x, 샷추가x, 그란데사이즈x)
+      </span>
+      <div />
+      <span className="desc">
+        모든 정보는 공식 홈페이지 영양 성분표를 참고했습니다! (2025년 5월 기준)
+      </span>
       <div className="toggle-wrapper">
         <div className="toggle-label">
           보기 기준 : {checked ? "☕️ 샷 당 카페인(mg/shot)" : "총 카페인(mg)"}{" "}
