@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { data } from "../data/coffee.data";
 const MAX_COFFEE = 400;
 import "./Home.css";
@@ -40,7 +40,7 @@ export const Home = () => {
       />
 
       <div className="bar_charts">
-        {filteredData.map((item, index) => {
+        {filteredData.map((item) => {
           const bar_width = checked
             ? (item.caffeine / 2 / MAX_COFFEE) * 100
             : (item.caffeine / MAX_COFFEE) * 100;
