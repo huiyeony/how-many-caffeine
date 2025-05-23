@@ -1,54 +1,21 @@
-# React + TypeScript + Vite
+# 📷 얼마나 카페인
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+얼마나 카페인은 , 프랜차이즈 커피의 Ice 아메리카노 2-shot 의 총 카페인 함량과,
+샷당 카페인 함량을 알려주는 서비스 입니다☕️
 
-Currently, two official plugins are available:
+![screenshot](/public/shot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ☕️ React SPA 어플리케이션
+- 🔗 링크드인을 통한 유저 피드백 기반으로 UI/UX 수정
+- [블로그 링크](https://velog.io/@huiyeony888/%EC%B9%B4%ED%8E%98%EC%9D%B8-%ED%95%A8%EB%9F%89-%EB%B9%84%EA%B5%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%84%9C%EB%B2%84-%EA%B5%AC%EC%B6%95%EA%B8%B0)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Frontend:** React
+- **Deployment:** Vercel
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Visit
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+[바로가기](https://how-many-caffeine.vercel.app/)
