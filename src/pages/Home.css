@@ -23,8 +23,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  transition: all 0.8s ease-in-out; /* 기본 상태에도 transition 추가 */
+  position: relative; /* highlight와 일관성 유지 */
 }
-
+.bar-row.highlight {
+  transform: scale(1.04);
+}
 .bar-label {
   width: 100px;
   font-size: 14px;
@@ -108,4 +112,119 @@
 
 input:checked + .slider {
   background-color: #4f86f7;
+}
+.brand-tags {
+  margin: 20px 0;
+}
+
+.tag-button {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tag-button:hover {
+  background-color: #c0c0c0;
+}
+.mega {
+  color: white;
+  background-color: #ffdf20;
+  font-weight: bold;
+}
+.compose {
+  color: #333;
+  background-color: #ffdf20;
+  font-weight: bold;
+}
+.starbucks {
+  color: white;
+  background-color: #006633;
+  font-weight: bold;
+}
+.ediya {
+  color: white;
+  background-color: #1c3269;
+  font-weight: bold;
+}
+.banapresso {
+  color: white;
+  background-color: #f1658a;
+  font-weight: bold;
+}
+.bbaeck {
+  color: #ffdf20;
+  background-color: #0e347e;
+  font-weight: bold;
+}
+.bombom {
+  color: white;
+  background-color: black;
+  font-weight: bold;
+}
+.paris {
+  color: white;
+  background-color: #023586;
+  font-weight: bold;
+}
+.the_venti {
+  background-color: #7b00a0;
+  color: white;
+  font-weight: bold;
+}
+.twosome {
+  background-color: #d50037;
+  color: white;
+  font-weight: bold;
+}
+.hasamdong {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+.paulbausset {
+  background-color: #e0004d;
+  color: white;
+  font-weight: bold;
+}
+.baskin {
+  background-color: #f986bd;
+  color: white;
+  font-weight: bold;
+}
+.gate {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+.gongcha {
+  background-color: #983b43;
+  color: white;
+  font-weight: bold;
+}
+.tera {
+  background-color: #ffdf20;
+  color: white;
+  font-weight: bold;
+}
+.dalcom {
+  background-color: #f43b00;
+  color: white;
+  font-weight: bold;
+}
+.hollys {
+  background-color: #ba000c;
+  color: white;
+  font-weight: bold;
+}
+
+.mammoth {
+  background-color: #61443a;
+  color: white;
+  font-weight: bold;
 }
