@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { data } from "../data/coffee.data";
 const MAX_COFFEE = 400;
 import "./Home.css";
