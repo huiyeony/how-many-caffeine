@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { data } from "../data/coffee.data";
 const MAX_COFFEE = 400;
 import "./Home.css";
+import Sidebar from "../components/Sidebar";
 export const Home = () => {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
@@ -11,7 +12,31 @@ export const Home = () => {
   const onChange = () => {
     setChecked(!checked);
   };
-
+  const BRANDS = [
+    "메가커피",
+    "컴포즈",
+    "스타벅스",
+    "이디야",
+    "바나프레소",
+    "빽다방",
+    "카페봄봄",
+    "파리바게트",
+    "더벤티",
+    "투썸플레이스",
+    "폴바셋",
+    "배스킨라빈스",
+    "카페게이트",
+    "공차",
+    "테라커피",
+    "달콤커피",
+    "할리스",
+    "매머드커피",
+    "하삼동커피",
+  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
@@ -39,215 +64,95 @@ export const Home = () => {
     }
   };
   return (
-    <div className="container">
-      <h2>💁‍♀️카페인 함량 비교☕️</h2>
-      <span className="desc">
-        2샷 Ice 아메리카노 카페인 함량입니다. (연하게x, 샷추가x, 그란데사이즈x)
-      </span>
-      <div />
-      <span className="desc">
-        모든 정보는 공식 홈페이지 영양 성분표를 참고했습니다! (2025년 5월 기준)
-      </span>
-      <div className="brand-tags">
+    <>
+      <header className="App-header">
         <button
-          className="tag-button mega"
-          onClick={() => scrollToBrand("메가커피")}
-        >
-          메가커피
-        </button>
-        <button
-          className="tag-button compose"
-          onClick={() => {
-            scrollToBrand("컴포즈");
+          style={{
+            fontSize: "2rem",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            margin: "0px 20px",
           }}
+          onClick={toggleSidebar}
         >
-          컴포즈
+          ≣
         </button>
-        <button
-          className="tag-button starbucks"
-          onClick={() => {
-            scrollToBrand("스타벅스");
-          }}
-        >
-          스타벅스
-        </button>
-        <button
-          className="tag-button ediya"
-          onClick={() => {
-            scrollToBrand("이디야");
-          }}
-        >
-          이디야
-        </button>
-        <button
-          className="tag-button banapresso"
-          onClick={() => {
-            scrollToBrand("바나프레소");
-          }}
-        >
-          바나프레소
-        </button>
-        <button
-          className="tag-button bbaeck"
-          onClick={() => {
-            scrollToBrand("빽다방");
-          }}
-        >
-          빽다방
-        </button>
-        <button
-          className="tag-button bombom"
-          onClick={() => {
-            scrollToBrand("카페봄봄");
-          }}
-        >
-          카페봄봄
-        </button>
-        <button
-          className="tag-button paris"
-          onClick={() => {
-            scrollToBrand("파리바게트");
-          }}
-        >
-          파리바게트
-        </button>
-        <button
-          className="tag-button the_venti"
-          onClick={() => {
-            scrollToBrand("더벤티");
-          }}
-        >
-          더벤티
-        </button>
-        <button
-          className="tag-button twosome"
-          onClick={() => {
-            scrollToBrand("투썸플레이스");
-          }}
-        >
-          투썸플레이스
-        </button>
-        <button
-          className="tag-button paulbausset"
-          onClick={() => {
-            scrollToBrand("폴바셋");
-          }}
-        >
-          폴바셋
-        </button>
-        <button
-          className="tag-button baskin"
-          onClick={() => {
-            scrollToBrand("배스킨라빈스");
-          }}
-        >
-          배스킨라빈스
-        </button>
-        <button
-          className="tag-button gate"
-          onClick={() => {
-            scrollToBrand("카페게이트");
-          }}
-        >
-          카페게이트
-        </button>
-        <button
-          className="tag-button gongcha"
-          onClick={() => {
-            scrollToBrand("공차");
-          }}
-        >
-          공차
-        </button>
-        <button
-          className="tag-button tera"
-          onClick={() => {
-            scrollToBrand("테라커피");
-          }}
-        >
-          테라커피
-        </button>
-        <button
-          className="tag-button dalcom"
-          onClick={() => {
-            scrollToBrand("달콤커피");
-          }}
-        >
-          달콤커피
-        </button>
-        <button
-          className="tag-button hollys"
-          onClick={() => {
-            scrollToBrand("할리스");
-          }}
-        >
-          할리스
-        </button>
-        <button
-          className="tag-button mammoth"
-          onClick={() => {
-            scrollToBrand("매머드커피");
-          }}
-        >
-          매머드커피
-        </button>
-        <button
-          className="tag-button hasamdong"
-          onClick={() => {
-            scrollToBrand("하삼동커피");
-          }}
-        >
-          하삼동커피
-        </button>
-      </div>
-      <div className="toggle-wrapper">
-        <div className="toggle-label">
-          보기 기준 : {checked ? "☕️ 샷 당 카페인(mg/shot)" : "총 카페인(mg)"}{" "}
+        <div className="App-title">
+          <h2>💁‍♀️카페인 함량 비교☕️</h2>
         </div>
-        <label className="switch">
-          <input type="checkbox" checked={checked} onChange={onChange} />
-          <span className="slider"></span>
-        </label>
-      </div>
-      <input
-        type="text"
-        placeholder="브랜드 이름을 입력하세요 (예: 스타벅스)"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-bar"
-      />
-
-      <div className="bar_charts">
-        {filteredData.map((item) => {
-          const bar_width = checked
-            ? (item.caffeine / 2 / MAX_COFFEE) * 100
-            : (item.caffeine / MAX_COFFEE) * 100;
-          console.log(item.name);
-          return (
-            <div
-              className="bar-row"
-              key={item.name}
-              ref={(el) => {
-                itemRefs.current[item.name] = el;
+      </header>
+      <Sidebar isOpen={isOpen} onClose={toggleSidebar} />
+      <div className="container">
+        {/**브랜드 태그들을 동적으로 렌더링  */}
+        <div className="brand-tags">
+          {BRANDS.map((brand) => (
+            <button
+              key={brand}
+              className={`tag-button ${brand}`}
+              onClick={() => {
+                scrollToBrand(brand);
               }}
             >
-              <div className="bar-label">{item.name} </div>
-              <div className="bar-wrapper">
-                <div
-                  className="bar"
-                  style={{
-                    width: `${bar_width}%`,
-                    backgroundColor:
-                      item.caffeine >= 200 ? "#fb2c36" : "#51a2ff",
-                  }}
-                >
-                  {checked ? item.caffeine / 2 : item.caffeine}mg
+              {brand}
+            </button>
+          ))}
+        </div>
+        <div className="toggle-wrapper">
+          <div className="toggle-label">
+            보기 기준 :{" "}
+            {checked ? "☕️ 샷 당 카페인(mg/shot)" : "총 카페인(mg)"}{" "}
+          </div>
+          <label className="switch">
+            <input type="checkbox" checked={checked} onChange={onChange} />
+            <span className="slider"></span>
+          </label>
+        </div>
+        <input
+          type="text"
+          placeholder="브랜드 이름을 입력하세요 (예: 스타벅스)"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-bar"
+        />
+
+        <div className="bar_charts">
+          {filteredData.map((item) => {
+            const bar_width = checked
+              ? (item.caffeine / 2 / MAX_COFFEE) * 100
+              : (item.caffeine / MAX_COFFEE) * 100;
+            console.log(item.name);
+            return (
+              <div
+                className="bar-row"
+                key={item.name}
+                ref={(el) => {
+                  itemRefs.current[item.name] = el;
+                }}
+              >
+                <div className="bar-label">{item.name} </div>
+                <div className="bar-wrapper">
+                  <div
+                    className="bar"
+                    style={{
+                      width: `${bar_width}%`,
+                      backgroundColor:
+                        item.caffeine >= 200 ? "#fb2c36" : "#51a2ff",
+                    }}
+                  >
+                    {checked ? item.caffeine / 2 : item.caffeine}mg
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <footer>
+          <div className="desc">
+            2샷 Ice 아메리카노 카페인 함량입니다.(2025/05월 기준)
+          </div>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };

@@ -1,5 +1,8 @@
+.App-header {
+  display: flex;
+}
 .container {
-  padding: 50px 30px;
+  padding: 10px 30px;
   margin: 0 auto;
   box-sizing: border-box;
   min-width: 280px;
@@ -10,6 +13,7 @@
 }
 .desc {
   color: gray;
+  font-weight: bold;
   font-size: small;
 }
 .bar-chart {
@@ -132,99 +136,80 @@ input:checked + .slider {
 .tag-button:hover {
   background-color: #c0c0c0;
 }
-.mega {
+.메가커피 {
   color: white;
   background-color: #ffdf20;
-  font-weight: bold;
 }
-.compose {
+.컴포즈 {
   color: #333;
   background-color: #ffdf20;
-  font-weight: bold;
 }
-.starbucks {
+.스타벅스 {
   color: white;
   background-color: #006633;
-  font-weight: bold;
 }
-.ediya {
+.이디야 {
   color: white;
   background-color: #1c3269;
-  font-weight: bold;
 }
-.banapresso {
+.바나프레소 {
   color: white;
   background-color: #f1658a;
-  font-weight: bold;
 }
-.bbaeck {
+.빽다방 {
   color: #ffdf20;
   background-color: #0e347e;
-  font-weight: bold;
 }
-.bombom {
+.카페봄봄 {
   color: white;
   background-color: black;
-  font-weight: bold;
 }
-.paris {
+.파리바게트 {
   color: white;
   background-color: #023586;
-  font-weight: bold;
 }
-.the_venti {
+.더벤티 {
   background-color: #7b00a0;
   color: white;
-  font-weight: bold;
 }
-.twosome {
+.투썸플레이스 {
   background-color: #d50037;
   color: white;
-  font-weight: bold;
 }
-.hasamdong {
+.하삼동커피 {
   background-color: #333;
   color: white;
-  font-weight: bold;
 }
-.paulbausset {
+.폴바셋 {
   background-color: #e0004d;
   color: white;
-  font-weight: bold;
 }
-.baskin {
+.배스킨라빈스 {
   background-color: #f986bd;
   color: white;
-  font-weight: bold;
 }
-.gate {
+.카페게이트 {
   background-color: #333;
   color: white;
-  font-weight: bold;
 }
-.gongcha {
+.공차 {
   background-color: #983b43;
   color: white;
-  font-weight: bold;
 }
-.tera {
+.테라커피 {
   background-color: #ffdf20;
   color: white;
-  font-weight: bold;
 }
-.dalcom {
+.달콤커피 {
   background-color: #f43b00;
   color: white;
-  font-weight: bold;
 }
-.hollys {
+.할리스 {
   background-color: #ba000c;
   color: white;
-  font-weight: bold;
 }
 
-.mammoth {
+.매머드커피 {
   background-color: #61443a;
   color: white;
-  font-weight: bold;
 }

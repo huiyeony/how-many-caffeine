@@ -1,0 +1,130 @@
+/* Sidebar.module.css */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px; /* 사이드바 너비 */
+  height: 100%;
+  background-color: #fff; /* 배경색 */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%); /* 기본적으로 화면 밖으로 숨김 */
+  transition: transform 0.3s ease-in-out; /* 애니메이션 효과 */
+  z-index: 1000; /* 다른 요소 위에 표시 */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box; /* 패딩 포함 너비 계산 */
+  overflow-y: auto; /* 내용이 길어질 경우 스크롤 */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* 열리면 화면 안으로 이동 */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+  z-index: 999; /* 사이드바 바로 아래에 표시 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end; /* 닫기 버튼을 오른쪽으로 */
+  margin-bottom: 20px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+}
+
+.userSection {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.menuItem {
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #333;
+  text-decoration: none; /* Link 사용 시 */
+  display: block; /* Link 사용 시 전체 영역 클릭 가능하도록 */
+}
+
+.menuItem:hover {
+  background-color: #f5f5f5;
+}
+
+.expandableMenuItem {
+  /* 확장 가능한 메뉴 아이템을 위한 스타일 */
+}
+
+.expandableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 0;
+  color: #333;
+}
+
+.expandableContent {
+  max-height: 0; /* 초기에는 숨김 */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.expandableContent.open {
+  max-height: 200px; /* 열렸을 때 최대 높이 (내용에 따라 조절) */
+}
+
+.subMenuItem {
+  padding: 8px 15px;
+  cursor: pointer;
+  color: #555;
+  text-decoration: none;
+  display: block;
+}
+
+.subMenuItem:hover {
+  background-color: #f0f0f0;
+}
