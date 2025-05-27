@@ -4,12 +4,34 @@ import styles from "./Sidebar.module.css";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  onChange: (brand: string) => void;
 }
 interface MenuItem {
   label: string;
   href?: string;
 }
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+const BRANDS = [
+  "메가커피",
+  "컴포즈",
+  "스타벅스",
+  "이디야",
+  "바나프레소",
+  "빽다방",
+  "카페봄봄",
+  "파리바게트",
+  "더벤티",
+  "투썸플레이스",
+  "폴바셋",
+  "배스킨라빈스",
+  "카페게이트",
+  "공차",
+  "테라커피",
+  "달콤커피",
+  "할리스",
+  "매머드커피",
+  "하삼동커피",
+];
+export default function Sidebar({ isOpen, onClose, onChange }: SidebarProps) {
   const menuItems: MenuItem[] = [
     {
       label: "⭐️BOOK MARKS",
@@ -32,13 +54,17 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             &times;
           </button>
         </div>
-        <nav>
-          {menuItems.map((item) => (
-            <a key={item.label} href={item.href} className={styles.menuItem}>
-              {item.label}
-            </a>
+        <div className={styles.brandTags}>
+          {BRANDS.map((brand) => (
+            <div
+              key={brand}
+              className={`${styles.tagButton} ${styles[brand]}`}
+              onClick={() => onChange(brand)}
+            >
+              {brand}
+            </div>
           ))}
-        </nav>
+        </div>
       </div>
     </>
   );
