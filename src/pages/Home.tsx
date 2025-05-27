@@ -72,7 +72,7 @@ export const Home = () => {
             background: "none",
             border: "none",
             cursor: "pointer",
-            margin: "0px 20px",
+            margin: "0px 8px",
           }}
           onClick={toggleSidebar}
         >
