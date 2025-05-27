@@ -6,10 +6,7 @@ interface SidebarProps {
   onClose: () => void;
   onChange: (brand: string) => void;
 }
-interface MenuItem {
-  label: string;
-  href?: string;
-}
+
 const BRANDS = [
   "메가커피",
   "컴포즈",
