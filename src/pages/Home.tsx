@@ -3,6 +3,8 @@ import { data } from "../data/coffee.data";
 const MAX_COFFEE = 400;
 import "./Home.css";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
+import BarChartItem from "../components/BarChartItem";
 export const Home = () => {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
@@ -16,6 +18,7 @@ export const Home = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
@@ -28,7 +31,7 @@ export const Home = () => {
   //특정 브랜드 DOM 요소로 스크롤 하는 함수
 
   return (
-    <>
+    <div className="main">
       <header className="App-header">
         <button
           style={{
@@ -36,14 +39,14 @@ export const Home = () => {
             background: "none",
             border: "none",
             cursor: "pointer",
-            margin: "0px 8px",
+            margin: "0px 28px",
           }}
           onClick={toggleSidebar}
         >
           ≣
         </button>
         <div className="App-title">
-          <h2>💁‍♀️카페인 함량 비교☕️</h2>
+          <h2 onClick={() => setSearch("")}>💁‍♀️카페인 함량 비교☕️</h2>
         </div>
       </header>
       <Sidebar
@@ -73,36 +76,17 @@ export const Home = () => {
         />
 
         <div className="bar_charts">
-          {filteredData.map((item) => {
-            const bar_width = checked
-              ? (item.caffeine / 2 / MAX_COFFEE) * 100
-              : (item.caffeine / MAX_COFFEE) * 100;
-            console.log(item.name);
-            return (
-              <div className="bar-row" key={item.name}>
-                <div className="bar-label">{item.name} </div>
-                <div className="bar-wrapper">
-                  <div
-                    className="bar"
-                    style={{
-                      width: `${bar_width}%`,
-                      backgroundColor:
-                        item.caffeine >= 200 ? "#fb2c36" : "#51a2ff",
-                    }}
-                  >
-                    {checked ? item.caffeine / 2 : item.caffeine}mg
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {filteredData.map((item) => (
+            <BarChartItem
+              name={item.name}
+              caffeine={item.caffeine}
+              checked={checked}
+              MAX_COFFEE={MAX_COFFEE}
+            />
+          ))}
         </div>
-        <footer>
-          <div className="desc">
-            2샷 Ice 아메리카노 카페인 함량입니다.(2025/05월 기준)
-          </div>
-        </footer>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };

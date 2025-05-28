@@ -1,0 +1,32 @@
+.bar_row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: all 0.8s ease-in-out; /* 기본 상태에도 transition 추가 */
+  position: relative; /* highlight와 일관성 유지 */
+}
+.bar_row.highlight {
+  transform: scale(1.04);
+}
+.bar_label {
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bar_wrapper {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 24px;
+  background-color: #4f86f7;
+  color: white;
+  font-size: 12px;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+}

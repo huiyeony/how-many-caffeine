@@ -1,0 +1,122 @@
+/* Footer.module.css */
+
+.footerContainer {
+  width: 100%;
+  background-color: #f7f7f7; /* 배경색 (이미지 기반) */
+  padding: 30px 10px;
+  border-top: 1px solid #fffefe;
+  color: #555;
+}
+
+.footerContent {
+  max-width: 1000px; /* 푸터 내용의 최대 너비 */
+  margin: 0 auto; /* 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 로고와 아이콘의 상단 정렬 */
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  /* 이미지에 있는 로고 스타일과 일치시키려면 font 대신 SVG나 img 태그를 사용 */
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  /* 인스타그램 아이콘처럼 보이게 하려면 아이콘 폰트나 SVG 사용 권장 */
+}
+
+.middleSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 왼쪽 정렬 */
+  gap: 10px;
+}
+
+.copyright {
+  font-size: 0.7rem;
+  color: #969696;
+  margin: 5px 0px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap; /* 링크가 많아지면 줄바꿈 */
+  gap: 15px; /* 링크 간 간격 */
+}
+
+.link {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.linkIcon {
+  margin-right: 5px; /* 아이콘과 텍스트 사이 간격 */
+  font-size: 1rem;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+}
+
+.languageSelector {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.languageSelector:hover {
+  background-color: #f0f0f0;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .footerContent {
+    padding: 0 15px; /* 모바일에서 좌우 패딩 줄이기 */
+  }
+
+  .topSection {
+    flex-direction: column; /* 모바일에서 세로로 정렬 */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .middleSection {
+    align-items: center; /* 모바일에서 중앙 정렬 */
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center; /* 모바일에서 링크 중앙 정렬 */
+  }
+
+  .bottomSection {
+    justify-content: center; /* 모바일에서 언어 선택 중앙 정렬 */
+  }
+}

@@ -1,5 +1,15 @@
 .App-header {
   display: flex;
+  border-bottom: 1px solid #ccc;
+}
+h2 {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+h2:hover {
+  color: #44403b;
+  font-weight: bold;
 }
 .container {
   padding: 10px 20px;
@@ -8,8 +18,13 @@
   min-width: 280px;
   max-width: 808px;
   width: 100%;
-  height: 100%;
+  flex: 1;
   font-family: sans-serif;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 .desc {
   color: gray;
@@ -23,38 +38,6 @@
   margin-top: 20px;
 }
 
-.bar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  transition: all 0.8s ease-in-out; /* 기본 상태에도 transition 추가 */
-  position: relative; /* highlight와 일관성 유지 */
-}
-.bar-row.highlight {
-  transform: scale(1.04);
-}
-.bar-label {
-  width: 100px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.bar-wrapper {
-  width: 100%;
-  background-color: #eee;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.bar {
-  height: 24px;
-  background-color: #4f86f7;
-  color: white;
-  font-size: 12px;
-  padding-left: 8px;
-  display: flex;
-  align-items: center;
-}
 .search-bar {
   width: 100%;
   padding: 16px;
