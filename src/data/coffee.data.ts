@@ -4,22 +4,14 @@ export const data = [
     caffeine: 243,
     isDecaf: false,
   },
-  {
-    name: "매머드커피 디카페인",
-    caffeine: 2.5,
-    isDecaf: true,
-  },
+
   {
     name: "빽다방",
     caffeine: 237,
     isDecaf: false,
     //decaf_cold_brew: 15,
   },
-  {
-    name: "빽다방 디카페인 콜드브루",
-    caffeine: 15,
-    isDecaf: true,
-  },
+
   {
     name: "카페봄봄",
     caffeine: 209.6,
@@ -41,11 +33,7 @@ export const data = [
     isDecaf: false,
     //decaf: 11.4,
   },
-  {
-    name: "메가커피 디카페인",
-    caffeine: 11.4,
-    isDecaf: true,
-  },
+
   {
     name: "바나프레소",
     caffeine: 203.4,
@@ -71,21 +59,12 @@ export const data = [
     //decaf_L: 9,
     //decaf_M: 11,
   },
-  {
-    name: "투썸플레이스 디카페인",
-    caffeine: 8,
-    isDecaf: true,
-  },
+
   {
     name: "하삼동커피",
     caffeine: 181,
     isDecaf: false,
     //dacaf_cold_brew: 21,
-  },
-  {
-    name: "하삼동커피 디카페인 콜드브루",
-    caffeine: 21,
-    isDecaf: true,
   },
 
   {
@@ -99,34 +78,21 @@ export const data = [
     isDecaf: false,
     //decaf: 9,
   },
-  {
-    name: "이디야 디카페인",
-    caffeine: 9,
-    isDecaf: true,
-  },
+
   {
     name: "컴포즈",
     caffeine: 156,
     isDecaf: false,
     //decaf_dutch: 9.2,
   },
-  {
-    name: "컴포즈 디카페인 더치",
-    caffeine: 9.2,
-    isDecaf: true,
-  },
+
   {
     name: "할리스",
     caffeine: 153,
     isDecaf: false,
     //decaf: 3,
   },
-  {
-    name: "할리스 디카페인",
-    caffeine: 3,
-    isDecaf: true,
-    //decaf: 3,
-  },
+
   {
     name: "스타벅스",
     caffeine: 150,
@@ -143,13 +109,7 @@ export const data = [
     isDecaf: false,
     //decaf: 16,
   },
-  {
-    name: "달콤커피 디카페인",
-    caffeine: 16,
-    isDecaf: true,
 
-    //decaf: 16,
-  },
   {
     name: "배스킨라빈스",
     caffeine: 131,
@@ -158,13 +118,61 @@ export const data = [
     //decaf_L: 3,
   },
   {
+    name: "공차",
+    caffeine: 129,
+    isDecaf: false,
+  },
+  {
+    name: "달콤커피 디카페인",
+    caffeine: 16,
+    isDecaf: true,
+
+    //decaf: 16,
+  },
+  {
     name: "배스킨라빈스 디카페인",
     caffeine: 2,
     isDecaf: true,
   },
   {
-    name: "공차",
-    caffeine: 129,
-    isDecaf: false,
+    name: "매머드커피 디카페인",
+    caffeine: 2.5,
+    isDecaf: true,
+  },
+  {
+    name: "빽다방 디카페인 콜드브루",
+    caffeine: 15,
+    isDecaf: true,
+  },
+  {
+    name: "메가커피 디카페인",
+    caffeine: 11.4,
+    isDecaf: true,
+  },
+  {
+    name: "투썸플레이스 디카페인",
+    caffeine: 8,
+    isDecaf: true,
+  },
+  {
+    name: "하삼동커피 디카페인 콜드브루",
+    caffeine: 21,
+    isDecaf: true,
+  },
+  {
+    name: "이디야 디카페인",
+    caffeine: 9,
+    isDecaf: true,
+  },
+  {
+    name: "컴포즈 디카페인 더치",
+    caffeine: 9.2,
+    isDecaf: true,
+  },
+  {
+    name: "할리스 디카페인",
+    caffeine: 3,
+    isDecaf: true,
+    //decaf: 3,
   },
 ];
