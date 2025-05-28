@@ -80,6 +80,7 @@ export const Home = () => {
             <BarChartItem
               name={item.name}
               caffeine={item.caffeine}
+              isDecaf={item.isDecaf}
               checked={checked}
               MAX_COFFEE={MAX_COFFEE}
             />

@@ -3,11 +3,13 @@ import styles from "./BarChartItem.module.css";
 export default function BarChartItem({
   name,
   caffeine,
+  isDecaf,
   checked,
   MAX_COFFEE,
 }: {
   name: string;
   caffeine: number;
+  isDecaf: boolean;
   checked: boolean;
   MAX_COFFEE: number;
 }) {
@@ -18,13 +20,21 @@ export default function BarChartItem({
 
     return (
       <div className={styles.bar_row} key={name}>
-        <div className={styles.bar_label}>{name} </div>
+        <div
+          className={`${styles.bar_label} ${
+            isDecaf ? styles["decaf_label"] : ""
+          }`}
+        >
+          {name} {isDecaf && <span>🍃</span>}
+        </div>
         <div className={styles.bar_wrapper}>
           <div
-            className={styles.bar}
+            className={`${styles.bar}`}
             style={{
               width: `${bar_width}%`,
-              backgroundColor: caffeine >= 200 ? "#fb2c36" : "#51a2ff",
+              backgroundColor: isDecaf ? "#8BC34A" : "#8ec5ff",
+              opacity: isDecaf ? 0.7 : 1,
+              color: isDecaf ? "#333" : "#1c1917",
             }}
           >
             {checked ? caffeine / 2 : caffeine}mg

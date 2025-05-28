@@ -5,13 +5,14 @@
   transition: all 0.8s ease-in-out; /* 기본 상태에도 transition 추가 */
   position: relative; /* highlight와 일관성 유지 */
 }
-.bar_row.highlight {
-  transform: scale(1.04);
-}
+
 .bar_label {
   width: 100px;
+  word-break: keep-all;
   font-size: 14px;
   font-weight: bold;
+  color: #333;
+  margin-right: 6px;
 }
 
 .bar_wrapper {
@@ -29,4 +30,10 @@
   padding-left: 8px;
   display: flex;
   align-items: center;
+}
+
+.decaf_label {
+  margin-left: 5px;
+  font-size: 0.8em;
+  vertical-align: middle;
 }
