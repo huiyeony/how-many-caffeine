@@ -122,21 +122,15 @@ export const data = [
     caffeine: 129,
     isDecaf: false,
   },
+
+  {
+    name: "하삼동커피 디카페인 콜드브루",
+    caffeine: 21,
+    isDecaf: true,
+  },
   {
     name: "달콤커피 디카페인",
     caffeine: 16,
-    isDecaf: true,
-
-    //decaf: 16,
-  },
-  {
-    name: "배스킨라빈스 디카페인",
-    caffeine: 2,
-    isDecaf: true,
-  },
-  {
-    name: "매머드커피 디카페인",
-    caffeine: 2.5,
     isDecaf: true,
   },
   {
@@ -150,13 +144,8 @@ export const data = [
     isDecaf: true,
   },
   {
-    name: "투썸플레이스 디카페인",
-    caffeine: 8,
-    isDecaf: true,
-  },
-  {
-    name: "하삼동커피 디카페인 콜드브루",
-    caffeine: 21,
+    name: "컴포즈 디카페인 더치",
+    caffeine: 9.2,
     isDecaf: true,
   },
   {
@@ -165,8 +154,8 @@ export const data = [
     isDecaf: true,
   },
   {
-    name: "컴포즈 디카페인 더치",
-    caffeine: 9.2,
+    name: "투썸플레이스 디카페인",
+    caffeine: 8,
     isDecaf: true,
   },
   {
@@ -174,5 +163,15 @@ export const data = [
     caffeine: 3,
     isDecaf: true,
     //decaf: 3,
+  },
+  {
+    name: "매머드커피 디카페인",
+    caffeine: 2.5,
+    isDecaf: true,
+  },
+  {
+    name: "배스킨라빈스 디카페인",
+    caffeine: 2,
+    isDecaf: true,
   },
 ];
