@@ -27,9 +27,7 @@ export const Home = () => {
             cursor: "pointer",
           }}
           onClick={toggleSidebar}
-        >
-          ≣
-        </button>
+        ></button>
         <div className="App-title">
           <img src="/aa.png" width={55} height={55} />
           <img src="title.png" width={70} />
