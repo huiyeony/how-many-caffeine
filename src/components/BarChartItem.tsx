@@ -2,7 +2,6 @@ import styles from "./BarChartItem.module.css";
 
 export default function BarChartItem({
   div,
-  cat,
   prd,
   caf,
   checked,

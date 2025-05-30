@@ -1,12 +1,10 @@
 import { useState } from "react";
 const MAX_COFFEE = 400;
 import "./Home.css";
-import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import BarCharts from "../components/Barcharts";
 
 export const Home = () => {
-  const [search, setSearch] = useState("");
   const [checked, setChecked] = useState(false);
   const onChange = () => {
     setChecked(!checked);
@@ -38,13 +36,13 @@ export const Home = () => {
           <img src="title.png" width={200} />
         </div>
       </header>
-      <Sidebar
+      {/* <Sidebar
         isOpen={isOpen}
         onClose={toggleSidebar}
         onChange={(brand: string) => {
           setSearch(brand);
         }}
-      />
+      /> */}
       <div className="container">
         <div className="toggle-wrapper">
           <div className="toggle-label">
