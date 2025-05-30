@@ -32,7 +32,7 @@ export default function BarCharts(props: BarChartsProps) {
     let query = supabase
       .from("notes")
       .select("*")
-      .order("caf", { ascending: true })
+      .order("caf", { ascending: false })
       .range(from, to);
 
     if (search) {
