@@ -1,43 +1,48 @@
 import styles from "./BarChartItem.module.css";
 
 export default function BarChartItem({
-  name,
-  caffeine,
-  isDecaf,
+  div,
+  cat,
+  prd,
+  caf,
   checked,
   MAX_COFFEE,
 }: {
-  name: string;
-  caffeine: number;
-  isDecaf: boolean;
+  div: string;
+  cat: string;
+  prd: string;
+  caf: number;
   checked: boolean;
   MAX_COFFEE: number;
 }) {
   {
     const bar_width = checked
-      ? (caffeine / 2 / MAX_COFFEE) * 100
-      : (caffeine / MAX_COFFEE) * 100;
+      ? (caf / 2 / MAX_COFFEE) * 100
+      : (caf / MAX_COFFEE) * 100;
 
     return (
-      <div className={styles.bar_row} key={name}>
-        <div
-          className={`${styles.bar_label} ${
-            isDecaf ? styles["decaf_label"] : ""
-          }`}
-        >
-          {name} {isDecaf && <span>🍃</span>}
+      <div className={styles.bar_row} key={prd}>
+        <div className={`${styles.bar_label}`}>
+          {div} {prd}
+          {/**만약 메가커피이면 <img src='메가커피.png' width=50 /> .. */}
+          {/**만약 cat='ice' 이면 <img src='/ice.png' width={50px}/> */}
+          {div == "ice" ? (
+            <img src={`/ice.png`} width={50} alt="ice 글자" />
+          ) : (
+            <img src={"/hot.png"} width={50} alt="hot 글자" />
+          )}
         </div>
         <div className={styles.bar_wrapper}>
           <div
             className={`${styles.bar}`}
             style={{
               width: `${bar_width}%`,
-              backgroundColor: isDecaf ? "#8BC34A" : "#8ec5ff",
-              opacity: isDecaf ? 0.7 : 1,
-              color: isDecaf ? "#333" : "#1c1917",
+              backgroundColor: "#8ec5ff",
+              opacity: 1,
+              color: "#1c1917",
             }}
           >
-            {checked ? caffeine / 2 : caffeine}mg
+            {checked ? caf / 2 : caf}mg
           </div>
         </div>
       </div>

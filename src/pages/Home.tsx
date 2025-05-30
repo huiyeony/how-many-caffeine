@@ -1,33 +1,21 @@
-import { useEffect, useState } from "react";
-import { data } from "../data/coffee.data";
+import { useState } from "react";
 const MAX_COFFEE = 400;
 import "./Home.css";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
-import BarChartItem from "../components/BarChartItem";
+import BarCharts from "../components/Barcharts";
+
 export const Home = () => {
   const [search, setSearch] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [checked, setChecked] = useState(false);
-
   const onChange = () => {
     setChecked(!checked);
   };
-
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, [search]);
-  const filteredData = data.filter((item) =>
-    item.name?.toLowerCase().includes(debouncedSearch.toLowerCase())
-  );
   //특정 브랜드 DOM 요소로 스크롤 하는 함수
 
   return (
@@ -46,7 +34,8 @@ export const Home = () => {
           ≣
         </button>
         <div className="App-title">
-          <h2 onClick={() => setSearch("")}>💁‍♀️카페인 함량 비교☕️</h2>
+          <img src="/aa.png" width={55} height={55} />
+          <img src="title.png" width={200} />
         </div>
       </header>
       <Sidebar
@@ -67,24 +56,9 @@ export const Home = () => {
             <span className="slider"></span>
           </label>
         </div>
-        <input
-          type="text"
-          placeholder="브랜드 이름을 입력하세요 (예: 스타벅스)"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="search-bar"
-        />
 
         <div className="bar_charts">
-          {filteredData.map((item) => (
-            <BarChartItem
-              name={item.name}
-              caffeine={item.caffeine}
-              isDecaf={item.isDecaf}
-              checked={checked}
-              MAX_COFFEE={MAX_COFFEE}
-            />
-          ))}
+          <BarCharts checked={checked} MAX_COFFEE={MAX_COFFEE} />
         </div>
       </div>
       <Footer />

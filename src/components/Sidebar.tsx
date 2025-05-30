@@ -29,12 +29,6 @@ const BRANDS = [
   "하삼동커피",
 ];
 export default function Sidebar({ isOpen, onClose, onChange }: SidebarProps) {
-  //   const menuItems: MenuItem[] = [
-  //     {
-  //       label: "⭐️BOOK MARKS",
-  //       href: "/",
-  //     },
-  //   ];
   const sidebarRef = useRef<HTMLDivElement>(null);
   return (
     <>

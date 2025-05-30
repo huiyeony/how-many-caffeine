@@ -2,6 +2,13 @@
   display: flex;
   border-bottom: 1px solid #ccc;
 }
+.App-title {
+  display: flex;
+  align-items: center;
+}
+img {
+  padding-bottom: 10px;
+}
 h2 {
   color: inherit;
   text-decoration: none;
