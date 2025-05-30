@@ -25,7 +25,6 @@ export const Home = () => {
             background: "none",
             border: "none",
             cursor: "pointer",
-            margin: "0px 28px",
           }}
           onClick={toggleSidebar}
         >
@@ -33,7 +32,7 @@ export const Home = () => {
         </button>
         <div className="App-title">
           <img src="/aa.png" width={55} height={55} />
-          <img src="title.png" width={200} />
+          <img src="title.png" width={70} />
         </div>
       </header>
       {/* <Sidebar
