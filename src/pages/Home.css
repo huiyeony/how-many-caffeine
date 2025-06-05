@@ -1,3 +1,9 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
 .App-header {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -19,13 +25,14 @@ h2:hover {
   font-weight: bold;
 }
 .container {
-  padding: 10px 20px;
-  margin: 0 auto;
+  margin-left: 20px;
   box-sizing: border-box;
   min-width: 280px;
   max-width: 808px;
+
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  flex: 1;
   font-family: sans-serif;
 }
 .main {

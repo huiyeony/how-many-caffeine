@@ -1,4 +1,7 @@
 .hasMoreRef {
   text-align: center;
   font-size: small;
+  font-weight: bold;
+  color: #6a7282;
+  margin-bottom: 20px;
 }

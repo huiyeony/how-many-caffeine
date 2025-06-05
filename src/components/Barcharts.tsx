@@ -17,6 +17,8 @@ interface BarChartsProps {
 const PAGE_SIZE = 50;
 export default function BarCharts(props: BarChartsProps) {
   const [search, setSearch] = useState<string>("");
+  const [iceType, setIceType] = useState<string>("ice");
+  const [name, setName] = useState<string>("아메리카노");
   const loadingRef = useRef(0);
   const hasMoreRef = useRef(1);
   const htmlDomRef = useRef<HTMLDivElement | null>(null);
@@ -32,15 +34,17 @@ export default function BarCharts(props: BarChartsProps) {
     let query = supabase
       .from("notes")
       .select("*")
-      .order("caf", { ascending: false })
-      .range(from, to);
+      .eq("type", iceType)
+      .ilike("prd", `${name}`);
 
     if (search) {
       query = query.ilike("div", `%${search}%`);
     }
+    query = query
+      .order("caf", { ascending: false }) //내림차순
+      .range(from, to);
 
     const { data, error } = await query;
-    console.log(`불러온 데이터 : ${from}-${to}`);
     if (error) {
       console.log(`데이터를 불러오는데 실패했습니다 : ${error.message}`);
       return;
@@ -55,7 +59,7 @@ export default function BarCharts(props: BarChartsProps) {
       pageRef.current == 0 ? [...data] : [...(prev || []), ...data]
     ); //react 변수에 저장
     loadingRef.current = 0;
-  }, [search]);
+  }, [iceType, name, search]);
   useEffect(() => {
     //무한스크롤링 트리거 설정
     const observer = new IntersectionObserver(
@@ -87,7 +91,7 @@ export default function BarCharts(props: BarChartsProps) {
     loadAsync();
   }, [search]);
   return (
-    <>
+    <div className={styles.barchartsContainer}>
       <input
         type="text"
         placeholder="브랜드 이름을 입력하세요 (예: 스타벅스)"
@@ -100,7 +104,7 @@ export default function BarCharts(props: BarChartsProps) {
           <BarChartItem
             key={item.prd + index}
             div={item.div}
-            cat={item.cat}
+            type={item.type}
             prd={item.prd}
             caf={item.caf}
             checked={props.checked}
@@ -111,6 +115,6 @@ export default function BarCharts(props: BarChartsProps) {
           {!hasMoreRef.current ? "더이상 데이터가 없습니다" : ""}
         </div>
       </div>
-    </>
+    </div>
   );
 }

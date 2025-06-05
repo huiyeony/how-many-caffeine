@@ -1,6 +1,6 @@
 export interface CoffeeItem {
   div: string;
-  cat: string;
+  type: string;
   prd: string;
   caf: number;
 }

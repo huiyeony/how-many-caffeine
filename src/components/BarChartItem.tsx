@@ -2,14 +2,14 @@ import styles from "./BarChartItem.module.css";
 
 export default function BarChartItem({
   div,
-  cat,
+  type,
   prd,
   caf,
   checked,
   MAX_COFFEE,
 }: {
   div: string;
-  cat: string;
+  type: string;
   prd: string;
   caf: number;
   checked: boolean;
@@ -23,14 +23,15 @@ export default function BarChartItem({
     return (
       <div className={styles.bar_row} key={prd}>
         <div className={`${styles.bar_label}`}>
-          {div} {prd}
-          {/**만약 메가커피이면 <img src='메가커피.png' width=50 /> .. */}
-          {/**만약 cat='ice' 이면 <img src='/ice.png' width={50px}/> */}
-          {cat == "ice" ? (
-            <img src={`/ice.png`} width={50} alt="ice 글자" />
-          ) : (
-            <img src={"/hot.png"} width={50} alt="hot 글자" />
-          )}
+          <span>{div}</span>
+          <span>{prd}</span>
+          <span>
+            {type == "ice" ? (
+              <img src={`/icecube.png`} width={50} alt="ice 글자" />
+            ) : (
+              <img src={"/hot.png"} width={50} alt="hot 글자" />
+            )}
+          </span>
         </div>
         <div className={styles.bar_wrapper}>
           <div
