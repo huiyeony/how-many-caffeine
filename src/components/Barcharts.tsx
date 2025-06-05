@@ -134,7 +134,7 @@ export default function BarCharts(props: BarChartsProps) {
             <button
               key={item}
               className={brandName == item ? styles.active : ""}
-              onClick={() => setBrandName(item)}
+              onClick={() => handleBrandType(item)}
             >
               {item}
             </button>
