@@ -5,33 +5,3 @@
   color: #6a7282;
   margin-bottom: 20px;
 }
-.filterWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.section {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.scrollable {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 8px;
-  scrollbar-width: thin;
-}
-button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  background: white;
-  border-radius: 1rem;
-  cursor: pointer;
-}
-button.active {
-  background: #0070f3;
-  color: white;
-  border-color: #0070f3;
-}

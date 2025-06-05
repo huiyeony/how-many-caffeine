@@ -2,42 +2,44 @@ import styles from "./BarCharts.module.css";
 import BarChartItem from "./BarChartItem";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import { supabase } from "../supabase";
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type ChangeEvent,
-} from "react";
-import { drinks } from "../data/drinks";
-import { brands } from "../data/brands";
+import { useCallback, useEffect, useRef, useState } from "react";
+import Filter from "./Filter";
 interface BarChartsProps {
   checked: boolean;
   MAX_COFFEE: number;
 }
 const PAGE_SIZE = 50;
 export default function BarCharts(props: BarChartsProps) {
-  const [search, setSearch] = useState<string>("");
   const [iceType, setIceType] = useState<"ice" | "hot" | null>("ice");
   const [drinkName, setDrinkName] = useState<string | null>("아메리카노");
-  const [brandName, setBrandName] = useState<string | null>("");
+  const [brandName, setBrandName] = useState<string | null>(null);
   const loadingRef = useRef(0);
   const hasMoreRef = useRef(1);
   const htmlDomRef = useRef<HTMLDivElement | null>(null);
   const pageRef = useRef(0);
   const [datas, setDatas] = useState<CoffeeItem[] | null>(null);
-  const handleIceType = (type: "ice" | "hot") => {
+  const handleIceType = (type: "ice" | "hot" | null) => {
     setIceType((prev) => (prev == type ? null : type));
+    hasMoreRef.current = 1;
+    pageRef.current = 0;
+    setDatas([]);
   };
   const handleDrinksType = (type: string) => {
     setDrinkName((prev) => (prev == type ? null : type));
+    hasMoreRef.current = 1;
+    pageRef.current = 0;
+    setDatas([]);
   };
   const handleBrandType = (type: string) => {
     setBrandName((prev) => (prev == type ? null : type));
+    hasMoreRef.current = 1;
+    pageRef.current = 0;
+    setDatas([]);
   };
-  //supabase 데이터 로드 함수
-  const loadAsync = useCallback(async () => {
+  //메모이징
+  const fetchCoffeeList = useCallback(async () => {
     if (loadingRef.current || !hasMoreRef.current) return;
+
     loadingRef.current = 1;
     const from = pageRef.current * PAGE_SIZE;
     const to = from + PAGE_SIZE - 1;
@@ -46,10 +48,11 @@ export default function BarCharts(props: BarChartsProps) {
       .from("notes")
       .select("*")
       .eq("type", iceType)
-      .ilike("prd", `${drinkName}`);
+      .ilike("prd", `%${drinkName}%`);
 
-    if (search) {
-      query = query.ilike("div", `%${search}%`);
+    //브랜드를 클릭 하면
+    if (brandName) {
+      query = query.eq("div", brandName);
     }
     query = query
       .order("caf", { ascending: false }) //내림차순
@@ -60,7 +63,7 @@ export default function BarCharts(props: BarChartsProps) {
       console.log(`데이터를 불러오는데 실패했습니다 : ${error.message}`);
       return;
     }
-    pageRef.current += 1; //다음에 불러올 페이지
+
     if (data.length < PAGE_SIZE) {
       hasMoreRef.current = 0;
     } else {
@@ -69,14 +72,16 @@ export default function BarCharts(props: BarChartsProps) {
     setDatas((prev) =>
       pageRef.current == 0 ? [...data] : [...(prev || []), ...data]
     ); //react 변수에 저장
+    pageRef.current += 1; //다음에 불러올 페이지
     loadingRef.current = 0;
-  }, [iceType, drinkName, search]);
+  }, [brandName, drinkName, iceType]);
+  //
   useEffect(() => {
     //무한스크롤링 트리거 설정
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0] && !loadingRef.current && hasMoreRef.current) {
-          loadAsync();
+          fetchCoffeeList();
         }
       },
       { threshold: 1 }
@@ -88,66 +93,22 @@ export default function BarCharts(props: BarChartsProps) {
     return () => {
       if (ref) observer.unobserve(ref);
     };
-  }, [loadAsync]);
-  //검색어 입력시 loadAsync
+  }, [fetchCoffeeList]);
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setSearch(e.target.value);
-    hasMoreRef.current = 1;
-    pageRef.current = 0;
-    setDatas([]);
-  };
   useEffect(() => {
-    loadAsync();
-  }, [search]);
+    fetchCoffeeList();
+  }, [iceType, fetchCoffeeList, brandName, drinkName]);
   return (
     <div className={styles.barchartsContainer}>
-      <div className={styles.filterWrapper}>
-        <div className={styles.section}>
-          <button
-            className={iceType == "ice" ? styles.active : ""}
-            onClick={() => handleIceType("ice")}
-          >
-            ice
-          </button>
-          <button
-            className={iceType == "hot" ? styles.active : ""}
-            onClick={() => handleIceType("hot")}
-          >
-            hot
-          </button>
-        </div>
-        <div className={styles.section}>
-          {drinks.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleDrinksType(item)}
-              className={drinkName == item ? styles.active : ""}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-        <div className={`${styles.section} ${styles.scrollable}`}>
-          {brands.map((item) => (
-            <button
-              key={item}
-              className={brandName == item ? styles.active : ""}
-              onClick={() => handleBrandType(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      </div>
-      <input
-        type="text"
-        placeholder="브랜드 이름을 입력하세요 (예: 스타벅스)"
-        value={search}
-        onChange={handleSearch}
-        className="search-bar"
+      <Filter
+        iceType={iceType}
+        drinkName={drinkName}
+        brandName={brandName}
+        handleBrandType={handleBrandType}
+        handleDrinksType={handleDrinksType}
+        handleIceType={handleIceType}
       />
+
       <div className={styles.barcharts}>
         {datas?.map((item, index) => (
           <BarChartItem
