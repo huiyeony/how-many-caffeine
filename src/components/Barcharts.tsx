@@ -9,32 +9,8 @@ import {
   useState,
   type ChangeEvent,
 } from "react";
-const drinks = ["아메리카노", "녹차", "초코", "밀크티"];
-const brands = [
-  "공차",
-  "달콤커피",
-  "더벤티",
-  "뚜레주르",
-  "매머드커피",
-  "메가커피",
-  "바나다커피",
-  "바나프레소",
-  "배스킨라빈스",
-  "빽다방",
-  "스타벅스",
-  "이디야",
-  "카페게이트",
-  "카페봄봄",
-  "컴포즈",
-  "컴포즈커피",
-  "테라커피",
-  "투썸플레이스",
-  "파리바게트",
-  "파스쿠찌",
-  "폴바셋",
-  "하삼동커피",
-  "할리스",
-];
+import { drinks } from "../data/drinks";
+import { brands } from "../data/brands";
 interface BarChartsProps {
   checked: boolean;
   MAX_COFFEE: number;
