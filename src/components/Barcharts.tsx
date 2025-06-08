@@ -10,8 +10,8 @@ interface BarChartsProps {
 }
 const PAGE_SIZE = 50;
 export default function BarCharts(props: BarChartsProps) {
-  const [iceType, setIceType] = useState<"ice" | "hot" | null>("ice");
-  const [drinkName, setDrinkName] = useState<string | null>("아메리카노");
+  const [iceType, setIceType] = useState<"ice" | "hot" | null>(null);
+  const [drinkName, setDrinkName] = useState<string | null>(null);
   const [brandName, setBrandName] = useState<string | null>(null);
   const loadingRef = useRef(0);
   const hasMoreRef = useRef(1);
@@ -44,7 +44,11 @@ export default function BarCharts(props: BarChartsProps) {
     const from = pageRef.current * PAGE_SIZE;
     const to = from + PAGE_SIZE - 1;
 
-    let query = supabase.from("notes").select("*").eq("type", iceType);
+    let query = supabase.from("notes").select("*");
+    //ice or hot
+    if (iceType) {
+      query = query.eq("type", iceType);
+    }
     //음료 이름
     if (drinkName) {
       query = query.ilike("prd", `%${drinkName}%`);
