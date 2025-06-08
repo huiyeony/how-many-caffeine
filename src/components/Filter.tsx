@@ -1,4 +1,4 @@
-import styles from "./Filter.module.css";
+import "./Filter.css";
 import { drinks } from "../data/drinks";
 import { brands } from "../data/brands";
 interface FilterProps {
@@ -19,37 +19,37 @@ export default function Filter({
 }: FilterProps) {
   return (
     <>
-      <div className={styles.filterWrapper}>
-        <div className={styles.section}>
+      <div className="filterWrapper">
+        <div className="section">
           <button
-            className={iceType == "ice" ? styles.active : ""}
+            className={iceType == "ice" ? "active" : ""}
             onClick={() => handleIceType("ice")}
           >
             ice
           </button>
           <button
-            className={iceType == "hot" ? styles.active : ""}
+            className={iceType == "hot" ? "active" : ""}
             onClick={() => handleIceType("hot")}
           >
             hot
           </button>
         </div>
-        <div className={styles.section}>
+        <div className="section">
           {drinks.map((item) => (
             <button
               key={item}
               onClick={() => handleDrinksType(item)}
-              className={drinkName == item ? styles.active : ""}
+              className={drinkName == item ? "active" : ""}
             >
               {item}
             </button>
           ))}
         </div>
-        <div className={`${styles.section} ${styles.scrollable}`}>
+        <div className="section scrollable">
           {brands.map((item) => (
             <button
               key={item}
-              className={brandName == item ? styles.active : ""}
+              className={brandName == item ? "active" : ""}
               onClick={() => handleBrandType(item)}
             >
               {item}

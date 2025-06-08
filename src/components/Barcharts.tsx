@@ -1,4 +1,4 @@
-import styles from "./BarCharts.module.css";
+import "./BarCharts.css";
 import BarChartItem from "./BarChartItem";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import { supabase } from "../supabase";
@@ -44,11 +44,11 @@ export default function BarCharts(props: BarChartsProps) {
     const from = pageRef.current * PAGE_SIZE;
     const to = from + PAGE_SIZE - 1;
 
-    let query = supabase
-      .from("notes")
-      .select("*")
-      .eq("type", iceType)
-      .ilike("prd", `%${drinkName}%`);
+    let query = supabase.from("notes").select("*").eq("type", iceType);
+    //음료 이름
+    if (drinkName) {
+      query = query.ilike("prd", `%${drinkName}%`);
+    }
 
     //브랜드를 클릭 하면
     if (brandName) {
@@ -99,7 +99,7 @@ export default function BarCharts(props: BarChartsProps) {
     fetchCoffeeList();
   }, [iceType, fetchCoffeeList, brandName, drinkName]);
   return (
-    <div className={styles.barchartsContainer}>
+    <div className="barchartsContainer">
       <Filter
         iceType={iceType}
         drinkName={drinkName}
@@ -109,7 +109,7 @@ export default function BarCharts(props: BarChartsProps) {
         handleIceType={handleIceType}
       />
 
-      <div className={styles.barcharts}>
+      <div className="barcharts">
         {datas?.map((item, index) => (
           <BarChartItem
             key={item.prd + index}
@@ -121,7 +121,7 @@ export default function BarCharts(props: BarChartsProps) {
             MAX_COFFEE={props.MAX_COFFEE}
           />
         ))}
-        <div ref={htmlDomRef} className={styles.hasMoreRef}>
+        <div ref={htmlDomRef} className="hasMoreRef">
           {!hasMoreRef.current ? "더이상 데이터가 없습니다" : ""}
         </div>
       </div>

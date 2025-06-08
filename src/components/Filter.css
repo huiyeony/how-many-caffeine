@@ -11,11 +11,7 @@
 }
 .scrollable {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  white-space: nowrap;
   gap: 5px;
-  scrollbar-width: thin;
 }
 button {
   padding: 0.5rem 1rem;

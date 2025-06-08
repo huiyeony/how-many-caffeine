@@ -1,4 +1,4 @@
-import styles from "./BarChartItem.module.css";
+import "./BarChartItem.css";
 
 export default function BarChartItem({
   div,
@@ -21,8 +21,8 @@ export default function BarChartItem({
       : (caf / MAX_COFFEE) * 100;
 
     return (
-      <div className={styles.bar_row} key={prd}>
-        <div className={`${styles.bar_label}`}>
+      <div className="bar_row" key={prd}>
+        <div className="bar_label">
           <span>{div}</span>
           <span>{prd}</span>
           <span>
@@ -33,9 +33,9 @@ export default function BarChartItem({
             )}
           </span>
         </div>
-        <div className={styles.bar_wrapper}>
+        <div className="bar_wrapper">
           <div
-            className={`${styles.bar}`}
+            className="bar"
             style={{
               width: `${bar_width}%`,
               backgroundColor: "#8ec5ff",
