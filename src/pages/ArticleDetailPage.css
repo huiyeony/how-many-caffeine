@@ -1,0 +1,20 @@
+.article-container {
+  padding: 7px;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-image {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+}
+p {
+  white-space: pre-line;
+  font-size: 15px;
+  margin-top: 55px;
+
+  line-height: 1.7;
+}

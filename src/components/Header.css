@@ -22,6 +22,7 @@
   font-weight: bold;
   margin-right: 24px;
   color: #1e1e1e;
+  text-decoration: none;
 }
 .nav {
   position: relative;
@@ -93,7 +94,8 @@
   padding: auto;
 }
 
-.subNav button {
+a,
+.subNav a {
   background: none;
   border: none;
   color: white;

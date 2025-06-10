@@ -1,26 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
-  const nav = useNavigate();
   return (
     <>
-      <header className="header">
+      <header className="`header">
         <div className="left">
-          <div className="logo">얼마나 카페인</div>
+          <Link to={"/"}>
+            <div className="logo">얼마나 카페인</div>
+          </Link>
+
           <div className="nav">
-            <a href="/magazine">Magazine</a>
+            <a href="/articles">Articles</a>
             <div className={`subNavWrapper`}>
               <div className="subNav">
-                <button onClick={() => nav("/magazine/challenges")}>
-                  Challenges
-                </button>
-                <button onClick={() => nav("/magazine/categories")}>
-                  카테고리
-                </button>
-                <button onClick={() => nav("/magazine/challenges/new")}>
-                  내 챌린지 만들기
-                </button>
+                <Link to={"/articles"}>Articles</Link>
+                <Link to={"/articles/categories"}>카테고리</Link>
+                <Link to={"/articles/new"}>아티클 만들기</Link>
               </div>
             </div>
           </div>
