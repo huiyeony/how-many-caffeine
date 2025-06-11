@@ -14,14 +14,13 @@
 
 .left {
   flex: 1;
-  padding: 16px 20px;
 }
 
 .logo {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 400;
   margin-right: 24px;
-  color: #1e1e1e;
+  color: #5a7282;
   text-decoration: none;
 }
 .nav {

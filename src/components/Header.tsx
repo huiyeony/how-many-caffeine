@@ -4,7 +4,7 @@ import "./Header.css";
 export default function Header() {
   return (
     <>
-      <header className="`header">
+      <header className="header">
         <div className="left">
           <Link to={"/"}>
             <div className="logo">얼마나 카페인</div>
