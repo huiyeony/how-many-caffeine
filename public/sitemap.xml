@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://how-many-caffeine.vercel.app/</loc></url>
-  <url><loc>https://how-many-caffeine.vercel.app/articles</loc></url>
-  <url><loc>https://how-many-caffeine.vercel.app/articles/1</loc></url>
-  <url><loc>https://how-many-caffeine.vercel.app/articles/2</loc></url>
+  <url><loc>https://www.howmanycaffeine.com/</loc></url>
+  <url><loc>https://www.howmanycaffeine.com/articles</loc></url>
+  <url><loc>https://www.howmanycaffeine.com/articles/1</loc></url>
+  <url><loc>https://www.howmanycaffeine.com/articles/2</loc></url>
   <!-- 동적으로 모든 ID 포함 -->
 </urlset>
