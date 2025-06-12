@@ -1,7 +1,22 @@
 .article-container {
   padding: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.body {
+.article-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article-body-content {
+  background-color: #fff;
+  flex: 1;
+  max-width: 600px;
+
+  padding: 10px 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +25,7 @@
   width: auto;
   height: 200px;
   object-fit: cover;
+  margin-top: 10px;
 }
 p {
   white-space: pre-line;

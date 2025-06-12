@@ -28,13 +28,15 @@ export default function ArticleDetailPage() {
     <div className="article-container">
       <Progress />
       <Header />
-      <div className="body">
-        <img
-          className="article-image"
-          src={article?.imageUrl}
-          alt={article?.title}
-        />
-        <p>{article?.content}</p>
+      <div className="article-body">
+        <div className="article-body-content">
+          <img
+            className="article-image"
+            src={article?.imageUrl}
+            alt={article?.title}
+          />
+          <p>{article?.content}</p>
+        </div>
       </div>
       <Footer />
     </div>
