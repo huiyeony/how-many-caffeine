@@ -4,4 +4,6 @@ export interface Article {
   content: string;
   imageUrl: string;
   date: string;
+  min: string;
+  tags: string[];
 }

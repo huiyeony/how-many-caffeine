@@ -19,7 +19,25 @@
 
   display: flex;
   flex-direction: column;
+
+  gap: 7px;
+}
+.article-title {
+  font-size: x-large;
+  color: #212121;
+  margin: 10px 0px;
+  padding: 10px 0px;
+}
+.box-items-wrapper {
+  color: #7e7e7e;
+  gap: 2px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  box-sizing: border-box;
+
+  margin: 10px 0px;
+  padding: 5px 0px;
 }
 .article-image {
   width: auto;

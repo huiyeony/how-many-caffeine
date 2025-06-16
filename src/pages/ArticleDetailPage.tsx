@@ -6,6 +6,7 @@ import type { Article } from "../types/Article";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Progress } from "../components/Progress";
+import { Tag } from "../components/Tag";
 export default function ArticleDetailPage() {
   const { id } = useParams();
   const [article, setArticle] = useState<Article | null>(null);
@@ -30,11 +31,28 @@ export default function ArticleDetailPage() {
       <Header />
       <div className="article-body">
         <div className="article-body-content">
+          <span className="article-title">{article?.title}</span>
+
+          <div className="box-items-wrapper">
+            <span> 🐹 관리자 | </span>
+
+            <span>🕘 2분 | </span>
+
+            <span>✨ 인기 | </span>
+            <span>{article?.date}</span>
+          </div>
+          <div className="box-tags-wrapper">
+            {article?.tags.map((item) => (
+              <Tag item={item} />
+            ))}
+          </div>
+
           <img
             className="article-image"
             src={article?.imageUrl}
             alt={article?.title}
           />
+
           <p>{article?.content}</p>
         </div>
       </div>

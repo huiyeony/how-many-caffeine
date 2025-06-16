@@ -12,6 +12,6 @@
 
 .progress-bar {
   height: 100%;
-  background-color: #059669; /* 하이라이트 색상 */
+  background-color: #05df72; /* 하이라이트 색상 */
   transition: width 0.2s ease-out;
 }
