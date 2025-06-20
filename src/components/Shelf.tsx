@@ -20,10 +20,7 @@ export const Shelf: React.FC<Props> = ({ main, secondary, items }) => {
             {items.map((item, index) => (
               <div key={index} className="cards_info">
                 <div className="cards_image">
-                  <img
-                    src="/public/images/optimized/ice.webp"
-                    alt="아메리카노"
-                  />
+                  <img src="/images/optimized/ice.webp" alt="아메리카노" />
                 </div>
                 <div className="cards_txt ice_type">{item.type}</div>
                 <div className="cards_txt brand_type">{item.div}</div>
