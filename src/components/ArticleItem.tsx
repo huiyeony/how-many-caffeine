@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "./Card.css";
+import "./ArticleItem.css";
 import type { Article } from "../types/Article";
 interface Props {
   article: Article;
 }
-export const Card: React.FC<Props> = ({ article }) => {
+export const ArticleItem: React.FC<Props> = ({ article }) => {
   return (
     <>
       <Link

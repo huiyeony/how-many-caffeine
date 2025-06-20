@@ -15,13 +15,15 @@
 .left {
   flex: 1;
 }
-
-.logo {
-  font-size: 18px;
-  font-weight: 400;
-  margin-right: 24px;
-  color: #5a7282;
+a {
   text-decoration: none;
+}
+.logo {
+  font-size: 32px;
+  padding: 4px 30px;
+  color: #05df72;
+  font-weight: 800;
+  -webkit-text-stroke: 0.3px #1e1e1e;
 }
 .nav {
   position: relative;

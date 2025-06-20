@@ -27,9 +27,17 @@ export default function BarChartItem({
           <span>{prd}</span>
           <span>
             {type == "ice" ? (
-              <img src={`/icecube.png`} width={50} alt="ice 글자" />
+              <img
+                src={`/images/optimized/ice.webp`}
+                width={50}
+                alt="ice 글자"
+              />
             ) : (
-              <img src={"/hot.png"} width={50} alt="hot 글자" />
+              <img
+                src={"/images/optimized/hot.webp"}
+                width={50}
+                alt="hot 글자"
+              />
             )}
           </span>
         </div>

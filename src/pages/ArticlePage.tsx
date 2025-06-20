@@ -1,11 +1,11 @@
 import "./ArticlePage.css";
-import { Card } from "../components/Card";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import { useEffect, useState } from "react";
 import { supabase } from "../supabase";
 import type { Article } from "../types/Article";
+import { ArticleItem } from "../components/ArticleItem";
 
 export default function ArticlePage() {
   const [articles, setArticles] = useState<Article[] | null>(null);
@@ -25,7 +25,7 @@ export default function ArticlePage() {
       <Header />
       <div className="articles-container">
         {articles?.map((item) => (
-          <Card article={item} key={item.id} />
+          <ArticleItem article={item} key={item.id} />
         ))}
       </div>
       <Footer />

@@ -21,7 +21,7 @@ button {
   cursor: pointer;
 }
 button.active {
-  background: #0070f3;
-  color: white;
-  border-color: #0070f3;
+  background: #05df72;
+  color: #1e1e1e;
+  border-color: #05df72;
 }

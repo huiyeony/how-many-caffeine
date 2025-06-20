@@ -1,0 +1,59 @@
+.section_container {
+  padding: 30px;
+  padding-bottom: 0px;
+}
+.cards_scrollable_container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  padding: 30px;
+}
+.cards_scrollable_container ::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cards_scrollable_container ::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.cards_shelf {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  flex-wrap: nowrap;
+}
+
+.cards_info {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+}
+.cards_image img {
+  width: auto;
+  object-fit: contain;
+  height: 200px;
+}
+.cards_txt {
+  max-width: 120px;
+  flex-wrap: wrap;
+  word-break: keep-all;
+
+  white-space: normal;
+  padding-top: 5px;
+  font-size: medium;
+  font-weight: 400;
+
+  font-size: small;
+}
+.caf {
+  padding: 4px;
+  font-weight: 600;
+}
