@@ -7,7 +7,9 @@ export default function Header() {
       <header className="header">
         <div className="left">
           <Link to={"/"}>
-            <div className="logo">얼마나 카페인</div>
+            <div className="logo">
+              <img src="title.png" width={"auto"} height={100} />
+            </div>
           </Link>
 
           <div className="nav">
@@ -22,7 +24,7 @@ export default function Header() {
           </div>
         </div>
         <div className="right">
-          <button className="icon">🌙</button>
+          <button className="icon"></button>
         </div>
       </header>
     </>
