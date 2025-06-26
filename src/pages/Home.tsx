@@ -16,7 +16,6 @@ export const Home = () => {
     setChecked(!checked);
   };
   const [notes, setNotes] = useState<CoffeeItem[]>([]);
-  const [secondaryNotes, setSecondaryNotes] = useState<CoffeeItem[]>([]);
   //특정 브랜드 DOM 요소로 스크롤 하는 함수
   useEffect(() => {
     const fetchFilteredNotes = async () => {
@@ -33,18 +32,6 @@ export const Home = () => {
     };
 
     fetchFilteredNotes().then(setNotes);
-    const fetchSecondaryFilteredNotes = async () => {
-      const { data } = await supabase
-        .from("notes")
-        .select("*")
-        .eq("type", "ice")
-        .ilike("prd", "%아메리카노")
-        .gt("caf", 200)
-        .order("caf", { ascending: false })
-        .limit(10); //상위 10개 카페인
-      return data as CoffeeItem[];
-    };
-    fetchSecondaryFilteredNotes().then(setSecondaryNotes);
   }, []);
   return (
     <>
@@ -64,13 +51,6 @@ export const Home = () => {
                 items={notes}
               />
             </div>
-            {/* <div className="shelf-2">
-              <Shelf
-                main="카페인 수혈이 당장 필요한 사람"
-                secondary="을 위한 선택"
-                items={secondaryNotes}
-              />
-            </div> */}
           </div>
 
           <div className="bar_charts">
