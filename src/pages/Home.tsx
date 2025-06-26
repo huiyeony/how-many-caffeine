@@ -8,6 +8,7 @@ import Toggle from "../components/Toggle";
 import { Shelf } from "../components/Shelf";
 import { supabase } from "../supabase";
 import type { CoffeeItem } from "../types/CoffeeItem";
+import PopularRanking from "../components/PopularRanking";
 
 export const Home = () => {
   const [checked, setChecked] = useState(false);
@@ -48,9 +49,13 @@ export const Home = () => {
   return (
     <>
       <Header />
+
       <div className="main">
         <div className="container">
           <Toggle checked={checked} onChange={onChange} />
+          <div>
+            <PopularRanking />
+          </div>
           <div className="recommendation-shelves">
             <div className="shelf-1">
               <Shelf
@@ -59,14 +64,15 @@ export const Home = () => {
                 items={notes}
               />
             </div>
-            <div className="shelf-2">
+            {/* <div className="shelf-2">
               <Shelf
                 main="카페인 수혈이 당장 필요한 사람"
                 secondary="을 위한 선택"
                 items={secondaryNotes}
               />
-            </div>
+            </div> */}
           </div>
+
           <div className="bar_charts">
             <BarCharts checked={checked} MAX_COFFEE={MAX_COFFEE} />
           </div>

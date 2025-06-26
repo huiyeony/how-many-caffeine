@@ -1,6 +1,7 @@
 import "./Filter.css";
 import { drinks } from "../data/drinks";
 import { brands } from "../data/brands";
+import { supabase } from "../supabase";
 interface FilterProps {
   iceType: "ice" | "hot" | null;
   drinkName: string | null;
@@ -17,6 +18,12 @@ export default function Filter({
   handleDrinksType,
   handleBrandType,
 }: FilterProps) {
+  const handleClick = async (name: string) => {
+    await supabase.from("logs").insert({
+      element: name,
+      path: window.location.pathname, //uuid, created_at
+    });
+  };
   return (
     <>
       <div className="filterWrapper">
@@ -49,8 +56,12 @@ export default function Filter({
           {brands.map((item) => (
             <button
               key={item}
+              name={item}
               className={brandName == item ? "active" : ""}
-              onClick={() => handleBrandType(item)}
+              onClick={() => {
+                handleBrandType(item);
+                handleClick(item);
+              }}
             >
               {item}
             </button>
