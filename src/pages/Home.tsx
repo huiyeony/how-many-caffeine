@@ -4,17 +4,12 @@ import "./Home.css";
 import Footer from "../components/Footer";
 import BarCharts from "../components/Barcharts";
 import Header from "../components/Header";
-import Toggle from "../components/Toggle";
 import { Shelf } from "../components/Shelf";
 import { supabase } from "../supabase";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import PopularRanking from "../components/PopularRanking";
 
 export const Home = () => {
-  const [checked, setChecked] = useState(false);
-  const onChange = () => {
-    setChecked(!checked);
-  };
   const [notes, setNotes] = useState<CoffeeItem[]>([]);
   //특정 브랜드 DOM 요소로 스크롤 하는 함수
   useEffect(() => {
@@ -55,7 +50,7 @@ export const Home = () => {
         </div>
         {/* 바 차트 */}
         <div className="home__main__bar-charts">
-          <BarCharts checked={checked} MAX_COFFEE={MAX_COFFEE} />
+          <BarCharts checked={false} MAX_COFFEE={MAX_COFFEE} />
         </div>
       </div>
       <div className="home__footer">
