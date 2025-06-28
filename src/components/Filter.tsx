@@ -26,8 +26,8 @@ export default function Filter({
   };
   return (
     <>
-      <div className="filterWrapper">
-        <div className="section">
+      <div className="filter">
+        <div className="filter__section">
           <button
             className={iceType == "ice" ? "active" : ""}
             onClick={() => handleIceType("ice")}
@@ -41,7 +41,7 @@ export default function Filter({
             hot
           </button>
         </div>
-        <div className="section">
+        <div className="filter__section">
           {drinks.map((item) => (
             <button
               key={item}
@@ -52,7 +52,7 @@ export default function Filter({
             </button>
           ))}
         </div>
-        <div className="section scrollable">
+        <div className="filter__section">
           {brands.map((item) => (
             <button
               key={item}

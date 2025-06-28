@@ -35,28 +35,30 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <Header />
-
-      <div className="main">
-        <div className="container">
-          <Toggle checked={checked} onChange={onChange} />
-          <div>
-            <PopularRanking />
-          </div>
-          <div className="recommendation-shelves">
-            <div className="shelf-1">
-              <Shelf
-                main="카페인에 민감한 사람"
-                secondary="을 위한 선택"
-                items={notes}
-              />
-            </div>
-          </div>
-
-          <div className="bar_charts">
-            <BarCharts checked={checked} MAX_COFFEE={MAX_COFFEE} />
-          </div>
+      {/* 헤더 부분 */}
+      <div className="home__header">
+        <Header />
+      </div>
+      {/* 메인 컨텐츠 부분 */}
+      <div className="home__main">
+        {/* 랭킹 */}
+        <div className="home__main__ranking">
+          <PopularRanking />
         </div>
+        {/* 추천 음료 */}
+        <div className="home__main__shelve">
+          <Shelf
+            main="카페인에 민감한 사람"
+            secondary="을 위한 선택"
+            items={notes}
+          />
+        </div>
+        {/* 바 차트 */}
+        <div className="home__main__bar-charts">
+          <BarCharts checked={checked} MAX_COFFEE={MAX_COFFEE} />
+        </div>
+      </div>
+      <div className="home__footer">
         <Footer />
       </div>
     </>
