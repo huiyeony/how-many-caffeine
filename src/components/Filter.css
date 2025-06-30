@@ -2,21 +2,19 @@ button {
   cursor: pointer;
   background-color: white;
   border: none;
-
+  border-radius: 20px;
   padding: 14px 18px;
   font-size: 14px;
   white-space: nowrap;
-  /* 줄바꿈 허용하지 않음  */
+  /* 줄바꿈 없음   */
 }
 button:hover {
   background-color: #e5e7eb;
-  border-radius: 14px;
 }
 button.active {
   background: #e5e7eb;
   color: #1e1e1e;
   border-color: #e5e7eb;
-  border-radius: 14px;
 }
 .filter {
   display: flex;
@@ -28,11 +26,8 @@ button.active {
 .filter__section {
   display: flex;
   padding: 4px 8px;
-  margin: 4px 8px;
+  gap: 8px;
   background: white;
-  border-radius: 20px;
-  box-sizing: border-box;
-  max-width: 900px;
 
   overflow-x: auto;
   white-space: nowrap;

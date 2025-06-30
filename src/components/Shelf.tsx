@@ -1,35 +1,29 @@
 import type { CoffeeItem } from "../types/CoffeeItem";
 import "./Shelf.css";
 type Props = {
-  main: string;
-  secondary: string;
   items: CoffeeItem[];
 };
-export const Shelf: React.FC<Props> = ({ main, secondary, items }) => {
+export const Shelf: React.FC<Props> = ({ items }) => {
   return (
     <>
-      <section className="section_container">
-        <div className="card_shelf_header">
-          <span className="cards_shelf_main_header">
-            <strong> {main} </strong>
-          </span>
-          <span className="cards_shelf_secondary_header">{secondary}</span>
+      <section className="section">
+        <div className="section__header">
+          <h2 className="section__header__main">
+            ❄️ 카페인 적은 아메리카노 랭킹
+          </h2>
         </div>
-        <div className="cards_scrollable_container">
-          <div className="cards_shelf">
+        <div className="section__scrollable">
+          <ul className="section__scrollable__shelf">
             {items.map((item, index) => (
-              <div key={index} className="cards_info">
-                <div className="cards_image">
-                  <img src="/images/optimized/ice.webp" alt="아메리카노" />
-                </div>
-                <div className="cards_txt ice_type">{item.type}</div>
-                <div className="cards_txt brand_type">{item.div}</div>
-                <div className="cards_txt product_name">{item.prd}</div>
-                <div className="cards_txt caf">{item.caf}mg</div>
-              </div>
+              <li key={index} className="info">
+                <div className="ranking">#{index}</div>
+                <div className="brand">{item.div}</div>
+                <div className="caffeine">{item.caf}mg</div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
+        <span>🔔 아이스 아메리카노 2샷 기준 입니다</span>
       </section>
     </>
   );

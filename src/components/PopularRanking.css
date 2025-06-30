@@ -1,36 +1,43 @@
-.ranking-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 1rem;
+span {
+  color: gray;
+  font-size: small;
+}
+.ranking__container {
+  max-width: 600px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 20px;
+  padding: 20px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.ranking-title {
-  font-size: 1.5rem;
+.ranking__title {
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
-.ranking-list {
+.ranking__list {
   list-style: none;
+  /* 불렛 none */
   padding: 0;
   margin: 0;
 }
 
-.ranking-item {
+.ranking__item {
   display: flex;
   justify-content: space-between;
-  padding: 0.6rem 1rem;
-  margin-bottom: 0.4rem;
+  padding: 16px 24px;
+  margin-bottom: 16px;
   border-radius: 8px;
   background: #f9f9f9;
   font-weight: 500;
   transition: background 0.3s;
 }
 
-.ranking-item:hover {
+.ranking__item:hover {
   background: #ececec;
 }
 
@@ -40,6 +47,16 @@
 }
 
 .count {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: gray;
+}
+.brand {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 767px) {
+  .ranking__container {
+    max-width: 1000px;
+    max-height: 250px;
+  }
 }

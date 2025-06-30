@@ -25,49 +25,51 @@ export default function Filter({
     });
   };
   return (
-    <>
-      <div className="filter">
-        <div className="filter__section">
-          <button
-            className={iceType == "ice" ? "active" : ""}
-            onClick={() => handleIceType("ice")}
-          >
-            ice
-          </button>
-          <button
-            className={iceType == "hot" ? "active" : ""}
-            onClick={() => handleIceType("hot")}
-          >
-            hot
-          </button>
-        </div>
-        <div className="filter__section">
-          {drinks.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleDrinksType(item)}
-              className={drinkName == item ? "active" : ""}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-        <div className="filter__section">
-          {brands.map((item) => (
-            <button
-              key={item}
-              name={item}
-              className={brandName == item ? "active" : ""}
-              onClick={() => {
-                handleBrandType(item);
-                handleClick(item);
-              }}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
+    <div className="filter">
+      <div className="filter__section">
+        <button> ❄️ / 🔥 </button>
+        <button
+          className={iceType == "ice" ? "active" : ""}
+          onClick={() => handleIceType("ice")}
+        >
+          ice
+        </button>
+
+        <button
+          className={iceType == "hot" ? "active" : ""}
+          onClick={() => handleIceType("hot")}
+        >
+          hot
+        </button>
       </div>
-    </>
+      <div className="filter__section">
+        <button>음료 종류🧩 </button>
+        {drinks.map((item) => (
+          <button
+            key={item}
+            onClick={() => handleDrinksType(item)}
+            className={drinkName == item ? "active" : ""}
+          >
+            {item}
+          </button>
+        ))}
+      </div>
+      <div className="filter__section">
+        <button>브랜드 🎀</button>
+        {brands.map((item) => (
+          <button
+            key={item}
+            name={item}
+            className={brandName == item ? "active" : ""}
+            onClick={() => {
+              handleBrandType(item);
+              handleClick(item);
+            }}
+          >
+            {item}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

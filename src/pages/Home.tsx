@@ -42,11 +42,7 @@ export const Home = () => {
         </div>
         {/* 추천 음료 */}
         <div className="home__main__shelve">
-          <Shelf
-            main="카페인에 민감한 사람"
-            secondary="을 위한 선택"
-            items={notes}
-          />
+          <Shelf items={notes} />
         </div>
         {/* 바 차트 */}
         <div className="home__main__bar-charts">

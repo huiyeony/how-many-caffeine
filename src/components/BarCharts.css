@@ -1,12 +1,22 @@
-.hasMoreRef {
-  text-align: center;
-  font-size: small;
-  font-weight: bold;
-  color: #6a7282;
-  margin-bottom: 20px;
+.barcharts__container {
+  max-width: 600px;
+
+  margin: 20px;
+  padding: 20px;
+
+  background-color: white;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.barCharts {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.no__more__data {
+  font-size: small;
+  color: gray;
+  text-align: center;
+  margin: 12px auto;
+}
+@media screen and (min-width: 767px) {
+  .barcharts__container {
+    max-width: 1000px;
+  }
 }

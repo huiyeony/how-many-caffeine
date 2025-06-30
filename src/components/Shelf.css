@@ -1,59 +1,58 @@
-.section_container {
-  padding: 30px;
-  padding-bottom: 0px;
+li {
+  padding: 0;
 }
-.cards_scrollable_container {
+h2 {
   display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-  padding: 30px;
+  align-items: center;
+  justify-content: center;
 }
-.cards_scrollable_container ::-webkit-scrollbar {
-  height: 3px;
-}
+.section {
+  max-width: 600px;
+  max-height: 400px;
+  overflow-y: auto;
 
-.cards_scrollable_container ::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
-}
-.cards_shelf {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
+  margin: 20px;
+  padding: 20px;
 
-  flex-wrap: nowrap;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-.cards_info {
-  width: auto;
+.section__scrollable {
   display: flex;
   flex-direction: column;
 
-  align-items: center;
-  text-align: center;
+  overflow-y: auto;
+  white-space: nowrap;
 }
-.cards_image img {
-  width: auto;
-  object-fit: contain;
-  height: 200px;
+.section__scrollable__shelf {
+  padding: 0;
 }
-.cards_txt {
-  max-width: 120px;
-  flex-wrap: wrap;
-  word-break: keep-all;
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-weight: 500;
+  transition: background 0.3s;
 
-  white-space: normal;
-  padding-top: 5px;
-  font-size: medium;
-  font-weight: 400;
-
-  font-size: small;
+  color: #808080;
+  font-size: 15px;
 }
-.caf {
-  padding: 4px;
-  font-weight: 600;
+.div,
+.ranking {
+  font-weight: bold;
+  color: #ff5722;
+}
+.caffeine {
+  font-weight: bold;
+  color: #155dfc;
+}
+@media screen and (min-width: 767px) {
+  .section {
+    max-width: 1000px;
+    max-height: 250px;
+  }
 }

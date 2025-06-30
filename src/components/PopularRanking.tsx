@@ -30,9 +30,10 @@ export default function PopularRanking() {
   }, []);
 
   return (
-    <div className="ranking-container">
-      <h2 className="ranking-title">🔥 인기 브랜드 랭킹</h2>
-      <ul className="ranking-list">
+    <div className="ranking__container">
+      <h2 className="ranking__title">🔥 인기 브랜드 랭킹</h2>
+
+      <ul className="ranking__list">
         <AnimatePresence>
           {brands.map((item) => (
             <motion.li
@@ -41,7 +42,7 @@ export default function PopularRanking() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.4 }}
-              className="ranking-item"
+              className="ranking__item"
             >
               <span className="rank">#{item.rank}</span>
               <span className="brand">{item.brand}</span>
@@ -49,8 +50,8 @@ export default function PopularRanking() {
             </motion.li>
           ))}
         </AnimatePresence>
-        <span style={{ color: "gray", marginTop: "5px", fontSize: "small" }}>
-          순위는 매일 자정 12:00 에 자동 업데이트 됩니다
+        <span className="small__text">
+          🔔 순위는 매일 자정 12:00 에 자동 업데이트 됩니다
         </span>
       </ul>
     </div>

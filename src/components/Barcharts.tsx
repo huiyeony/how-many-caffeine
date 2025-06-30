@@ -103,7 +103,10 @@ export default function BarCharts(props: BarChartsProps) {
     fetchCoffeeList();
   }, [iceType, fetchCoffeeList, brandName, drinkName]);
   return (
-    <div className="barchartsContainer">
+    // 컨테이너
+    <div className="barcharts__container">
+      {/* 필터 영역*/}
+
       <Filter
         iceType={iceType}
         drinkName={drinkName}
@@ -112,7 +115,7 @@ export default function BarCharts(props: BarChartsProps) {
         handleDrinksType={handleDrinksType}
         handleIceType={handleIceType}
       />
-
+      {/* 실제 차트 영역 */}
       <div className="barcharts">
         {datas?.map((item, index) => (
           <BarChartItem
@@ -125,8 +128,9 @@ export default function BarCharts(props: BarChartsProps) {
             MAX_COFFEE={props.MAX_COFFEE}
           />
         ))}
-        <div ref={htmlDomRef} className="hasMoreRef">
-          {!hasMoreRef.current ? "더이상 데이터가 없습니다" : ""}
+        {/* 전달 사항  */}
+        <div ref={htmlDomRef} className="no__more__data">
+          {!hasMoreRef.current ? "🔔 더이상 데이터가 없습니다" : ""}
         </div>
       </div>
     </div>
