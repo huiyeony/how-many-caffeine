@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./EditorPage.css";
 import { supabase } from "../supabase";
-import Footer from "../components/Footer";
+import Footer from "@/components/Footer";
 export default function EditorPage() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
