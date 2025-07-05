@@ -1,6 +1,6 @@
 import type { CoffeeItem } from "../types/CoffeeItem";
-import "./BarCharts.css";
 import BarchartItem from "./BarchartItem";
+import "./BarCharts.css";
 
 type BarchartsProps = {
   datas: CoffeeItem[] | null;

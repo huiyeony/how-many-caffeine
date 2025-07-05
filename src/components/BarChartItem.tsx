@@ -1,4 +1,4 @@
-import "./BarChartItem.css";
+import "./BarchartItem.css";
 import { MAX_COFFEE } from "./util/getMaxCaffein";
 
 export default function BarchartItem({
