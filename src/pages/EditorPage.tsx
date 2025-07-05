@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./EditorPage.css";
 import { supabase } from "../supabase";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 export default function EditorPage() {
   const [title, setTitle] = useState<string>("");
@@ -20,7 +19,6 @@ export default function EditorPage() {
   };
   return (
     <>
-      <Header />
       <div className="editor-wrapper">
         <form onSubmit={handleSubmit} className="editor-form">
           <div className="editor-heading">아티클 작성하기 </div>

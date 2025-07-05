@@ -6,9 +6,15 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@components": path.resolve(__dirname, "./src/components"),
-    },
+    alias: [
+      {
+        find: "@/*",
+        replacement: path.resolve(__dirname, "./src/*"),
+      },
+      {
+        find: "@components",
+        replacement: path.resolve(__dirname, "./src/components"),
+      },
+    ],
   },
 });

@@ -1,9 +1,0 @@
-.articles-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-  gap: 20px;
-  box-sizing: border-box;
-
-  padding: 30px 110px;
-}
