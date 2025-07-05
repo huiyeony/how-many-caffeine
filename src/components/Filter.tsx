@@ -2,11 +2,12 @@ import "./Filter.css";
 import { drinks } from "../data/drinks";
 import { brands } from "../data/brands";
 import { supabase } from "../supabase";
+
 interface FilterProps {
-  iceType: "ice" | "hot" | null;
+  iceType: string | null;
   drinkName: string | null;
   brandName: string | null;
-  handleIceType: (type: "ice" | "hot" | null) => void;
+  handleIceType: (type: string) => void;
   handleDrinksType: (type: string) => void;
   handleBrandType: (type: string) => void;
 }
@@ -26,10 +27,11 @@ export default function Filter({
   };
   return (
     <div className="filter">
-      <div className="filter__section">
-        <button> ❄️ / 🔥 </button>
+      <div className="flex flex-row gap-x-1 overflow-x-auto">
+        <button> 타입 ❄️</button>
+
         <button
-          className={iceType == "ice" ? "active" : ""}
+          className={`${iceType == "ice" ? "active" : ""}`}
           onClick={() => handleIceType("ice")}
         >
           ice
@@ -42,8 +44,8 @@ export default function Filter({
           hot
         </button>
       </div>
-      <div className="filter__section">
-        <button>음료 종류🧩 </button>
+      <div className="flex flex-row gap-x-1 overflow-x-auto">
+        <button> 종류🧩 </button>
         {drinks.map((item) => (
           <button
             key={item}
@@ -54,7 +56,7 @@ export default function Filter({
           </button>
         ))}
       </div>
-      <div className="filter__section">
+      <div className="flex flex-row gap-x-1 overflow-x-auto">
         <button>브랜드 🎀</button>
         {brands.map((item) => (
           <button

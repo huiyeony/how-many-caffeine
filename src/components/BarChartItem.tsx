@@ -1,24 +1,19 @@
 import "./BarChartItem.css";
+import { MAX_COFFEE } from "./util/getMaxCaffein";
 
-export default function BarChartItem({
+export default function BarchartItem({
   div,
   type,
   prd,
   caf,
-  checked,
-  MAX_COFFEE,
 }: {
   div: string;
   type: string;
   prd: string;
   caf: number;
-  checked: boolean;
-  MAX_COFFEE: number;
 }) {
   {
-    const bar_width = checked
-      ? (caf / 2 / MAX_COFFEE) * 100
-      : (caf / MAX_COFFEE) * 100;
+    const bar_width = (caf / MAX_COFFEE) * 100;
 
     return (
       <div className="bar_row" key={prd}>
@@ -51,7 +46,7 @@ export default function BarChartItem({
               color: "#1c1917",
             }}
           >
-            {checked ? caf / 2 : caf}mg
+            {caf}mg
           </div>
         </div>
       </div>

@@ -5,8 +5,6 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  transition: all 0.8s ease-in-out; /* 기본 상태에도 transition 추가 */
-  position: relative; /* highlight와 일관성 유지 */
 }
 
 .bar_label {

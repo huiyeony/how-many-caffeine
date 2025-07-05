@@ -13,11 +13,6 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
         key={article.id}
         className="article-card"
       >
-        {/*<img
-          className="article-image"
-          src={`/images/optimized/${article.imageUrl}`}
-          height={"auto"}
-        />*/}
         <div className="article-content">
           <h1>{article.title}</h1>
           <div className="p">

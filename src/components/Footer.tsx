@@ -17,7 +17,11 @@ export default function Footer() {
         <div className="footerContent">
           <div className="topSection">
             <div className="logo">
-              <img src="/title.png" width={130} alt="사이트제목" />
+              <img
+                src="/assets/logo.png"
+                className="object-contain h-20"
+                alt="사이트제목"
+              />
             </div>
             <div className="text">
               모든 커피는 하루 권장 카페인 섭취량은 400mg 기준의 비율로

@@ -1,19 +1,9 @@
-.home__main {
-  width: calc(100vw - 96px);
-  padding: 16px;
-  max-width: 900px;
-
-  font-size: 16px;
-
-  gap: 20px;
+.page {
+  width: 100vw;
+  height: 778px;
+  background-color: #dff2fe;
+  /* bg-sky-200 */
 }
-
-@media screen and (max-width: 767px) {
-  .home__main {
-    padding: 24px;
-    width: calc((100vw - 48px));
-
-    max-width: 600px;
-    font-size: 14px;
-  }
+.main {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

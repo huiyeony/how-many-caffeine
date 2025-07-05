@@ -1,15 +1,15 @@
 button {
-  cursor: pointer;
-  background-color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 14px 18px;
-  font-size: 14px;
+  height: 32px;
   white-space: nowrap;
   /* 줄바꿈 없음   */
+  font-size: small;
+  font-weight: bold;
+
+  padding: 0px 14px;
+  border-radius: 120px;
 }
 button:hover {
-  background-color: #e5e7eb;
+  background-color: #eff0f2;
 }
 button.active {
   background: #e5e7eb;
