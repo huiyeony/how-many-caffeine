@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./ArticleItem.css";
-import type { Article } from "../types/Article";
+
 import ReactMarkDown from "react-markdown";
+import type { Article } from "@/types/Article";
 interface Props {
   article: Article;
 }

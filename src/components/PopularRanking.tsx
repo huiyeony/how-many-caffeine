@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabase"; // 사전에 설정한 supabase client
+// 사전에 설정한 supabase client
 import { motion, AnimatePresence } from "framer-motion";
 import "./PopularRanking.css";
+import { supabase } from "@/supabase";
 interface Brand {
   brand: string;
   count: number;
