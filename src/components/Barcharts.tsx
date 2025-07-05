@@ -1,8 +1,6 @@
-import type { CoffeeItem } from "../types/CoffeeItem";
-import BarchartItem from "./BarchartItem";
-
-import "./BarCharts.css";
-
+import type { CoffeeItem } from "@/types/CoffeeItem";
+import "./Barcharts.css";
+import BarchartItem from "@/components/BarchartItem";
 type BarchartsProps = {
   datas: CoffeeItem[] | null;
 };

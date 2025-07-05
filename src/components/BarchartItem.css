@@ -1,0 +1,39 @@
+.bar_row {
+  background-color: white;
+  padding: 10px 17px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bar_label {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  word-break: keep-all;
+  font-size: 13px;
+  font-weight: bold;
+  color: #6a7282;
+  gap: 2px;
+  margin-right: 6px;
+
+  padding: 8px 4px;
+}
+
+.bar_wrapper {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 24px;
+  background-color: #4f86f7;
+  color: white;
+  font-size: 12px;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+}
