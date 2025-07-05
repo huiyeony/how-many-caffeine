@@ -1,7 +1,7 @@
 // 카페인 함량이 낮은 커피를 최대 10개 반환합니다.
 
-import { supabase } from "@/supabase";
-import type { CoffeeItem } from "@/types/CoffeeItem";
+import { supabase } from "../../supabase";
+import type { CoffeeItem } from "../../types/CoffeeItem";
 
 export const getLowCaffeineAmericano = async () => {
   const { data } = await supabase
