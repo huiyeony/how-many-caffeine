@@ -1,16 +1,5 @@
 import "./Footer.css";
 export default function Footer() {
-  const generateMailtoLink = (email: string, subject: string) => {
-    let href = `mailto:${email}`;
-    const params = [];
-    //제목 파라미터 입력
-    params.push(`subject=${encodeURIComponent(subject)}`);
-
-    if (params.length > 0) {
-      href += `?${params.join("&")}`;
-    }
-    return href;
-  };
   return (
     <>
       {/* 전체 바탕 */}
