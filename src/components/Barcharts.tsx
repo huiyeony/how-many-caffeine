@@ -10,7 +10,7 @@ export default function Barcharts({ datas }: BarchartsProps) {
 
   return (
     //스크롤 박스 영역
-    <div className="bg-white py-3 px-2">
+    <div className="bg-transparent py-3 px-2">
       {/* 리스트 영역 */}
       <div>
         {datas?.map((item, index) => (

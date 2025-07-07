@@ -1,7 +1,7 @@
-import "./Filter.css";
 import { drinks } from "../data/drinks";
 import { brands } from "../data/brands";
 import { supabase } from "../supabase";
+import Button from "./Button";
 
 interface FilterProps {
   iceType: string | null;
@@ -19,57 +19,56 @@ export default function Filter({
   handleDrinksType,
   handleBrandType,
 }: FilterProps) {
-  const handleClick = async (name: string) => {
+  const clickBrand = async (name: string) => {
     await supabase.from("logs").insert({
       element: name,
       path: window.location.pathname, //uuid, created_at
     });
   };
   return (
-    <div className="filter">
-      <div className="flex flex-row gap-x-1 overflow-x-auto">
-        <button> 타입 ❄️</button>
-
-        <button
-          className={`${iceType == "ice" ? "active" : ""}`}
-          onClick={() => handleIceType("ice")}
-        >
-          ice
-        </button>
-
-        <button
-          className={iceType == "hot" ? "active" : ""}
-          onClick={() => handleIceType("hot")}
-        >
-          hot
-        </button>
-      </div>
-      <div className="flex flex-row gap-x-1 overflow-x-auto">
-        <button> 종류🧩 </button>
-        {drinks.map((item) => (
-          <button
-            key={item}
-            onClick={() => handleDrinksType(item)}
-            className={drinkName == item ? "active" : ""}
-          >
-            {item}
-          </button>
-        ))}
-      </div>
-      <div className="flex flex-row gap-x-1 overflow-x-auto">
-        <button>브랜드 🎀</button>
+    <div className="filter ml-2 pl-2 text-sm flex flex-col fixed top-[130px] bg-white max-w-[487px]">
+      <div className="flex flex-row items-center gap-x-1 overflow-x-auto py-2">
+        <span className="whitespace-nowrap flex items-center">🔔 브랜드</span>
         {brands.map((item) => (
-          <button
+          <Button
+            isActive={item == brandName}
             key={item}
-            name={item}
-            className={brandName == item ? "active" : ""}
             onClick={() => {
               handleBrandType(item);
-              handleClick(item);
+              clickBrand(item);
             }}
           >
             {item}
-          </button>
+          </Button>
+        ))}
+      </div>
+      <div className="flex flex-row gap-x-1 overflow-x-auto py-2">
+        <span className="flex items-center"> 🔥 / ❄️</span>
+
+        <Button
+          onClick={() => handleIceType("ice")}
+          isActive={iceType == "ice"}
+        >
+          ice
+        </Button>
+
+        <Button
+          onClick={() => handleIceType("hot")}
+          isActive={iceType == "hot"}
+        >
+          hot
+        </Button>
+      </div>
+      <div className="flex flex-row gap-x-1 overflow-x-auto py-2">
+        <span className="flex items-center">🥤 </span>
+        {drinks.map((item) => (
+          <Button
+            key={item}
+            onClick={() => handleDrinksType(item)}
+            isActive={item == drinkName}
+          >
+            {item}
+          </Button>
         ))}
       </div>
     </div>

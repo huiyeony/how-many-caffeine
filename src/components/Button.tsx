@@ -1,12 +1,17 @@
-export default function Button({
-  children,
-}: //   content,
-{
+type ButtonProps = {
   children: React.ReactNode;
-}) {
+  onClick: () => void;
+  isActive?: boolean;
+};
+export default function Button({ children, onClick, isActive }: ButtonProps) {
   return (
-    <div className="px-3 py-1 text-sm bold rounded-[120px] hover:bg-gray-100 ">
-      <p className="m-0">{children}</p>
+    <div
+      className={`p-2 mr-2 text-sm bold rounded-xl whitespace-nowrap cursor-pointer ${
+        isActive ? "text-sky-500 font-bold underline underline-offset-4" : ""
+      }`}
+      onClick={onClick}
+    >
+      <span>{children}</span>
     </div>
   );
 }

@@ -16,34 +16,29 @@ export default function BarchartItem({
     const bar_width = (caf / MAX_COFFEE) * 100;
 
     return (
-      <div className="bar_row" key={prd}>
+      // 아이템 영역
+      <div className="bar" key={prd}>
+        {/* 라벨 영역 */}
         <div className="bar_label">
-          <span>{div}</span>
+          {/* 브랜드명 */}
+          <span>{`[${div}]`}</span>
+          {/* 제품명 */}
           <span>{prd}</span>
-          <span>
-            {type == "ice" ? (
-              <img
-                src={`/images/optimized/ice.webp`}
-                width={50}
-                alt="ice 글자"
-              />
-            ) : (
-              <img
-                src={"/images/optimized/hot.webp"}
-                width={50}
-                alt="hot 글자"
-              />
-            )}
-          </span>
+          {/* 이미지 영역 */}
+          {type == "ice" ? (
+            <img src={`/images/optimized/ice.webp`} width={30} alt="ice 글자" />
+          ) : (
+            <img src={"/images/optimized/hot.webp"} width={30} alt="hot 글자" />
+          )}
         </div>
-        <div className="bar_wrapper">
+        {/* 막대 그래프 부분 */}
+        <div className="bar_graph">
           <div
-            className="bar"
+            className="bar_graph_content"
             style={{
               width: `${bar_width}%`,
               backgroundColor: "#8ec5ff",
-              opacity: 1,
-              color: "#1c1917",
+              color: "#2e2e2e",
             }}
           >
             {caf}mg

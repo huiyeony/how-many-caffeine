@@ -13,37 +13,18 @@ export default function Footer() {
   };
   return (
     <>
-      <footer className="footerContainer">
-        <div className="footerContent">
-          <div className="topSection">
-            <div className="logo">
-              <img
-                src="/assets/logo.png"
-                className="object-contain h-20"
-                alt="사이트제목"
-              />
-            </div>
-            <div className="text">
-              모든 커피는 하루 권장 카페인 섭취량은 400mg 기준의 비율로
-              표시하였습니다.
-            </div>
-          </div>
-          <div className="middleSection">
-            <p className="text">ⓒ얼마나 카페인. ALL RIGHTS RESERVED </p>
-            <div className="links">
-              <a
-                className="link"
-                href={generateMailtoLink(
-                  "howcaff@gmail.com",
-                  "[버그 | 불편사항 제보]"
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="text">버그 및 불편사항 제보</span>
-              </a>
-            </div>
-          </div>
+      {/* 전체 바탕 */}
+      <footer className="w-full h-[150px] flex flex-col text-sm p-5">
+        {/* 로고 부분 */}
+        <div className="mb-4">⭐️얼마나 카페인</div>
+        {/* 안내 사항 */}
+        <div className="text-xs text-gray-800">
+          모든 커피는 하루 권장 카페인 섭취량 (400mg) 기준 비율로
+          표시하였습니다.
+        </div>
+
+        <div className="text-xs text-gray-800">
+          ⓒ얼마나 카페인. ALL RIGHTS RESERVED{" "}
         </div>
       </footer>
     </>

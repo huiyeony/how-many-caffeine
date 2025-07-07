@@ -107,31 +107,26 @@ export const Home = () => {
     getFilteredData();
   }, [iceType, drinkName, brandName, getFilteredData]);
   return (
-    // 배경 영역
-    <div className="page flex justify-center">
+    // 페이지 영역
+    <div className="page flex justify-center overflow-y-hidden">
       {/* 흰색 영역 */}
-      <div className="relative main max-w-3xl max-h-full w-[475px] bg-white overflow-y-auto ">
+      <div className="bg-white w-[495px] h-full flex flex-col gap-20 ">
         {/* 헤더 영역 */}
-        <header className="fixed flex flex-col w-full items-center z-100 bg-white rounded-lg">
+        <header className="fixed top-0 flex-col w-full max-w-[495px] bg-white">
           {/* 로고 영역 */}
           <section className="flex flex-row w-full justify-between">
-            <img
-              src="/assets/logo.png"
-              alt="logo-image"
-              className="object-contain h-24"
-            />
-            {/* 햄버거 아이콘 */}
-            <div className="icon flex items-center justify-center p-4">
-              <AlignJustify />
+            <span className="bold text-sm m-4">⚡️얼마나 카페인</span>
+            {/* 창 아이콘 */}
+            <div className="icon flex items-center m-4">
+              <AlignJustify size={16} />
             </div>
           </section>
 
-          {/* 사이드 바 추후 동적으로 추가 예정*/}
-          {/* 검색 영역 */}
+          {/* 검색창 */}
           <section className="p-3 w-full">
-            <div className=" bg-gray-200 rounded-full flex flex-row gap-2 p-2 w-full">
+            <div className="bg-gray-100 rounded-full flex flex-row gap-2 p-2 w-full">
               <div className="flex items-center pl-3">
-                <Search className="w-5 text-red-400" />
+                <Search className="w-5 text-orange-300" />
               </div>
 
               {/* input 태그 */}
@@ -140,26 +135,28 @@ export const Home = () => {
                 placeholder="브랜드 또는 음료를 검색하세요"
                 className="w-full bg-transparent text-sm p-3 focus:outline-none"
               ></input>
-              <div className="flex items-center pr-3">
+              <div className="flex items-center mr-5">
                 <ChevronRight className="w-5" />
               </div>
             </div>
           </section>
         </header>
+        {/* 필터링 UI */}
 
-        <div className="mt-[190px]">
-          {/* 필터 영역*/}
+        <Filter
+          iceType={iceType}
+          drinkName={drinkName}
+          brandName={brandName}
+          handleBrandType={handleBrandType}
+          handleDrinksType={handleDrinksType}
+          handleIceType={handleIceType}
+        />
 
-          <Filter
-            iceType={iceType}
-            drinkName={drinkName}
-            brandName={brandName}
-            handleBrandType={handleBrandType}
-            handleDrinksType={handleDrinksType}
-            handleIceType={handleIceType}
-          />
+        {/* 데이터 영역 */}
+        <div className="mt-[310px] ml-2 overflow-y-auto">
+          {/* 실제 차트 */}
           <Barcharts datas={datas} />
-          {/* 텍스트 영역*/}
+          {/*  영역*/}
           <div
             ref={htmlDomRef}
             className="text-sm text-gray-800 text-center p-4"
