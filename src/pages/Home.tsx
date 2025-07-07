@@ -112,7 +112,7 @@ export const Home = () => {
       {/* 흰색 영역 */}
       <div className="relative main max-w-3xl max-h-full w-[475px] bg-white overflow-y-auto ">
         {/* 헤더 영역 */}
-        <header className="fixed flex flex-col w-[475px] items-center z-100 bg-white rounded-lg">
+        <header className="fixed flex flex-col w-full items-center z-100 bg-white rounded-lg">
           {/* 로고 영역 */}
           <section className="flex flex-row w-full justify-between">
             <img
@@ -160,8 +160,11 @@ export const Home = () => {
           />
           <Barcharts datas={datas} />
           {/* 텍스트 영역*/}
-          <div ref={htmlDomRef} className="text-sm text-gray-100 text-center">
-            {!hasMoreRef.current ? "🔔 더이상 데이터가 없습니다" : ""}
+          <div
+            ref={htmlDomRef}
+            className="text-sm text-gray-800 text-center p-4"
+          >
+            {!hasMoreRef.current ? "⚠️ 더이상 데이터가 없습니다" : ""}
           </div>
         </div>
         <Footer />
