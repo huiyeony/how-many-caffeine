@@ -116,9 +116,9 @@ export const Home = () => {
         className="fixed bottom-0 z-100"
       />
       {/* 흰색 영역 2*/}
-      <div className="fixed top-0 bg-white w-[495px] h-full flex flex-col gap-5 z-200">
+      <div className="white__space fixed top-0 bg-white w-[495px] h-full flex flex-col gap-5 z-200">
         {/* 헤더 영역 */}
-        <header className="fixed top-0 flex-col w-full max-w-[495px] bg-white">
+        <header className="fixed flex-col w-full max-w-[495px] bg-white">
           {/* 로고 영역 */}
           <section className="flex flex-row w-full justify-between">
             <span className="bold text-sm m-4">⚡️얼마나 카페인</span>

@@ -7,3 +7,9 @@
 .main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+@media screen and (max-width: 494px) {
+  .white__space {
+    position: static;
+    padding: 10px;
+  }
+}
