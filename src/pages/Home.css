@@ -12,4 +12,15 @@
     position: static;
     padding: 10px;
   }
+  * {
+    font-size: 10px;
+  }
+  .mainBackground {
+    display: none;
+  }
+}
+/* 스크롤바 전체 영역 */
+* ::-webkit-scrollbar {
+  width: 16px; /* 수직 스크롤바 너비 */
+  height: 16px; /* 수평 스크롤바 높이 */
 }

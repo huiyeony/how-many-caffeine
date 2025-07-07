@@ -108,12 +108,12 @@ export const Home = () => {
   }, [iceType, drinkName, brandName, getFilteredData]);
   return (
     // 파랑 바탕 0
-    <div className="page flex justify-center overflow-y-hidden">
+    <div className="page flex justify-center ">
       {/* 잔디밭 1 */}
       <img
         src="/assets/mainBackground.webp"
         alt="@background"
-        className="fixed bottom-0 z-100"
+        className="mainBackground fixed bottom-0 z-100"
       />
       {/* 흰색 영역 2*/}
       <div className="white__space fixed top-0 bg-white w-[495px] h-full flex flex-col gap-5 z-200">
@@ -123,7 +123,7 @@ export const Home = () => {
           <section className="flex flex-row w-full justify-between">
             <span className="bold text-sm m-4">⚡️얼마나 카페인</span>
             {/* 창 아이콘 */}
-            <div className="icon flex items-center m-4">
+            <div className="icon flex items-center justify-center m-4">
               <AlignJustify size={16} />
             </div>
           </section>
@@ -159,7 +159,7 @@ export const Home = () => {
         />
 
         {/* 데이터 영역 */}
-        <div className="mt-[310px] ml-2 overflow-y-auto">
+        <div className="barcharts mt-[310px] ml-2 overflow-y-auto">
           {/* 실제 차트 */}
           <Barcharts datas={datas} />
           {/*  영역*/}
