@@ -107,10 +107,16 @@ export const Home = () => {
     getFilteredData();
   }, [iceType, drinkName, brandName, getFilteredData]);
   return (
-    // 페이지 영역
+    // 파랑 바탕 0
     <div className="page flex justify-center overflow-y-hidden">
-      {/* 흰색 영역 */}
-      <div className="bg-white w-[495px] h-full flex flex-col gap-20 ">
+      {/* 잔디밭 1 */}
+      <img
+        src="/assets/mainBackground.webp"
+        alt="@background"
+        className="fixed bottom-0 z-100"
+      />
+      {/* 흰색 영역 2*/}
+      <div className="fixed top-0 bg-white w-[495px] h-full flex flex-col gap-5 z-200">
         {/* 헤더 영역 */}
         <header className="fixed top-0 flex-col w-full max-w-[495px] bg-white">
           {/* 로고 영역 */}
