@@ -30,7 +30,7 @@ function Sidebar({ handleSetOpen }: SidebarProp) {
         <div className="absolute bottom-0 bg-white w-full h-12" />
         {/* <--로그 이미지--> */}
         <img
-          src="/assets/bigLogo.png"
+          src="/assets/bigLogo.webp"
           className="absolute bottom-0 w-32 object-contain"
         />
       </div>
