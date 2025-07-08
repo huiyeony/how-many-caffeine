@@ -26,7 +26,7 @@ export default function Filter({
     });
   };
   return (
-    <div className="filter ml-2 pl-2 text-sm flex flex-col fixed top-[130px] bg-white max-w-[487px]">
+    <div className="filter ml-2 pl-2 text-sm flex flex-col top-[130px] bg-white max-w-[487px]">
       <div className="flex flex-row items-center gap-x-1 overflow-x-auto py-2">
         <span className="whitespace-nowrap flex items-center">🔔 브랜드</span>
         {brands.map((item) => (

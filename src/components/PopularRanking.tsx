@@ -11,23 +11,20 @@ interface Brand {
 
 export default function PopularRanking() {
   const [brands, setBrands] = useState<Brand[]>([]);
+  // <-- 데이터베이스에서 순위 가져오는 함수 -->
+  async function fetchData() {
+    const { data, error } = await supabase
+      .from("popular_brands")
+      .select("*")
+      .order("rank");
 
-  // 실시간 데이터 fetch
+    if (!error && data) {
+      setBrands(data);
+    }
+  }
+  // <-- 데이터베이스에서 순위 가져온다 -->
   useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase
-        .from("popular_brands")
-        .select("*")
-        .order("rank");
-
-      if (!error && data) {
-        setBrands(data);
-      }
-    };
-
     fetchData();
-    const interval = setInterval(fetchData, 10000); // 10초마다 새로고침
-    return () => clearInterval(interval);
   }, []);
 
   return (

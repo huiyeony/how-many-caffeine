@@ -17,9 +17,9 @@ export default function BarchartItem({
 
     return (
       // 아이템 영역
-      <div className="bar" key={prd}>
+      <div className="bar flex flex-row justify-between" key={prd}>
         {/* 라벨 영역 */}
-        <div className="bar_label">
+        <div className="bar_label whitespace-wrap">
           {/* 브랜드명 */}
           <span>{`[${div}]`}</span>
           {/* 제품명 */}
@@ -32,7 +32,7 @@ export default function BarchartItem({
           )}
         </div>
         {/* 막대 그래프 부분 */}
-        <div className="bar_graph">
+        <div className="bar_graph flex-1">
           <div
             className="bar_graph_content"
             style={{

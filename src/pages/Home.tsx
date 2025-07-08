@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Barcharts from "../components/Barcharts";
 import Filter from "../components/Filter";
 import Footer from "../components/Footer";
-import "./Home.css";
+
 import { AlignJustify, Search, ChevronRight } from "lucide-react";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import { PAGE_SIZE } from "../components/util/getPageSize";
@@ -78,7 +78,25 @@ export const Home = () => {
     setBrandName((prev) => (prev == type ? null : type));
     onChange();
   }
-
+  // 헤더 숨김 여부
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  function handleScrollDownOrUp() {
+    const scrollY = window.scrollY;
+    // 스크롤을 내리고 있다
+    if (scrollY > lastScrollY.current) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+    lastScrollY.current = scrollY;
+  }
+  // 스크롤 이벤트 추가
+  useEffect(() => {
+    addEventListener("scroll", handleScrollDownOrUp);
+    // 스크롤 이벤트 삭제
+    return () => removeEventListener("scroll", handleScrollDownOrUp);
+  }, []);
   //
   useEffect(() => {
     //무한스크롤링 트리거 설정
@@ -107,59 +125,60 @@ export const Home = () => {
     getFilteredData();
   }, [iceType, drinkName, brandName, getFilteredData]);
   return (
-    // 파랑 바탕 0
-    <div className="page flex justify-center ">
-      {/* 잔디밭 1 */}
-      <img
-        src="/assets/mainBackground.webp"
-        alt="@background"
-        className="mainBackground fixed bottom-0 z-100"
-      />
-      {/* 흰색 영역 2*/}
-      <div className="white__space fixed top-0 bg-white w-[495px] h-full flex flex-col gap-5 z-200">
-        {/* 헤더 영역 */}
-        <header className="fixed flex-col w-full max-w-[495px] bg-white">
-          {/* 로고 영역 */}
+    //< -- 전체 영역 -->
+    //< -- 헤더 부분 -->
+    //< -- 로고 --> <-- 메뉴 아이콘 -->
+    //< -- 검색바 -->
+    //< -- 필터 -->
+    // <-- 리스트 -->
+    // <-- 푸터 -->
+
+    //< -- 전체 영역 -->
+    <div className="page flex flex-col w-screen bg-sky-200 min-h-screen">
+      {/*  <-- 모바일 부분 -->  */}
+      <div className="bg-white flex flex-col max-w-[495px] m-auto min-h-screen overflow-y-auto">
+        {/* < -- 헤더 영역 --> */}
+        <header
+          className={`transition-transform duration-300 ${
+            isHidden ? "-translate-y-full" : "translate-y-0"
+          } w-full flex flex-col max-w-[495px] bg-white`}
+        >
+          {/* <-- 헤더 로고 + 메뉴 아이콘 --> */}
           <section className="flex flex-row w-full justify-between">
             <span className="bold text-sm m-4">⚡️얼마나 카페인</span>
             {/* 창 아이콘 */}
-            <div className="icon flex items-center justify-center m-4">
-              <AlignJustify size={16} />
-            </div>
+            <div className="flex items-center justify-center mr-4">=</div>
           </section>
 
-          {/* 검색창 */}
-          <section className="p-3 w-full">
-            <div className="bg-gray-100 rounded-full flex flex-row gap-2 p-2 w-full">
-              <div className="flex items-center pl-3">
-                <Search className="w-5 text-orange-300" />
-              </div>
-
-              {/* input 태그 */}
+          {/* <-- 검색 --> */}
+          <section className="px-3 w-full">
+            <div className="w-full bg-gray-100 rounded-xl flex flex-row gap-2 p-2 ">
+              {/* <-- 돋보기 아이콘 -->  */}
+              <div className="flex items-center">🔍</div>
+              {/* <-- 입력창 --> */}
               <input
                 type="text"
                 placeholder="브랜드 또는 음료를 검색하세요"
                 className="w-full bg-transparent text-sm p-3 focus:outline-none"
-              ></input>
-              <div className="flex items-center mr-5">
-                <ChevronRight className="w-5" />
-              </div>
+              />
+              {/* <-- 버튼 -->  */}
+              <div className="flex items-center mr-5">{`>`}</div>
             </div>
           </section>
-        </header>
-        {/* 필터링 UI */}
 
-        <Filter
-          iceType={iceType}
-          drinkName={drinkName}
-          brandName={brandName}
-          handleBrandType={handleBrandType}
-          handleDrinksType={handleDrinksType}
-          handleIceType={handleIceType}
-        />
+          {/* <-- 필터 -->  */}
+          <Filter
+            iceType={iceType}
+            drinkName={drinkName}
+            brandName={brandName}
+            handleBrandType={handleBrandType}
+            handleDrinksType={handleDrinksType}
+            handleIceType={handleIceType}
+          />
+        </header>
 
         {/* 데이터 영역 */}
-        <div className="barcharts mt-[310px] ml-2 overflow-y-auto">
+        <div className="w-full max-w-[495px]">
           {/* 실제 차트 */}
           <Barcharts datas={datas} />
           {/*  영역*/}
