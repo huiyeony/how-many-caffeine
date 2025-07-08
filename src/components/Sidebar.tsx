@@ -36,9 +36,9 @@ function Sidebar({ handleSetOpen }: SidebarProp) {
       </div>
       {/* <-- 메뉴 버튼 -->  */}
       <ul className="flex flex-col gap-8 px-6 mt-6">
-        {menuItems.map((item) => {
+        {menuItems.map((item, index) => {
           return (
-            <li className="flex flex-row gap-4">
+            <li key={index} className="flex flex-row gap-4">
               <span>{item.emoji}</span>
               <span>{item.label}</span>
             </li>
