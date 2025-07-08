@@ -5,9 +5,15 @@ import Footer from "../components/Footer";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import { PAGE_SIZE } from "../components/util/getPageSize";
 import { supabase } from "../supabase";
+import Sidebar from "@/components/Sidebar";
+import { AlignJustify } from "lucide-react";
 const DATABASE_NAME = "notes";
 
 export const Home = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  function handleSetOpen(open: boolean) {
+    setOpen(open);
+  }
   const [iceType, setIceType] = useState<string | null>(null);
   const [drinkName, setDrinkName] = useState<string | null>(null);
   const [brandName, setBrandName] = useState<string | null>(null);
@@ -134,18 +140,21 @@ export const Home = () => {
     //< -- 전체 영역 -->
     <div className="page flex flex-col w-screen bg-sky-200 min-h-screen">
       {/*  <-- 모바일 부분 -->  */}
-      <div className="bg-white flex flex-col max-w-[495px] m-auto min-h-screen overflow-y-auto">
+      <div className="bg-white flex flex-col max-w-[495px] m-auto min-h-screen overflow-y-auto relative">
         {/* < -- 헤더 영역 --> */}
         <header
-          className={`transition-transform duration-300 ${
-            isHidden ? "-translate-y-full" : "translate-y-0"
-          } w-full flex flex-col max-w-[495px] bg-white`}
+          className={`transition-transform duration-300 w-full flex flex-col max-w-[495px] bg-white`}
         >
           {/* <-- 헤더 로고 + 메뉴 아이콘 --> */}
-          <section className="flex flex-row w-full justify-between">
+          <section className="flex flex-row w-full justify-between relative">
             <span className="bold text-sm m-4">⚡️얼마나 카페인</span>
             {/* 창 아이콘 */}
-            <div className="flex items-center justify-center mr-4">=</div>
+            <div
+              className="flex items-center justify-center px-4 cursor-pointer"
+              onClick={() => setOpen(true)}
+            >
+              <AlignJustify size={20} />
+            </div>
           </section>
 
           {/* <-- 검색 --> */}
@@ -188,6 +197,21 @@ export const Home = () => {
           </div>
         </div>
         <Footer />
+
+        {/* <-- 불투명 배경  --> */}
+        {open && (
+          <div>
+            <div
+              className="absolute inset-0 bg-black/30 z-1 w-full h-full"
+              // 창 닫기
+              onClick={() => setOpen(false)}
+            />
+            <div className="absolute top-0 right-0 w-[280px] ">
+              {/* <-- 슬라이더--> */}
+              <Sidebar handleSetOpen={handleSetOpen} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
