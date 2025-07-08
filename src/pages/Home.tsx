@@ -2,8 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Barcharts from "../components/Barcharts";
 import Filter from "../components/Filter";
 import Footer from "../components/Footer";
-
-import { AlignJustify, Search, ChevronRight } from "lucide-react";
 import type { CoffeeItem } from "../types/CoffeeItem";
 import { PAGE_SIZE } from "../components/util/getPageSize";
 import { supabase } from "../supabase";
