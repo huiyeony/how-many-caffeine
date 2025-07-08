@@ -82,26 +82,7 @@ export const Home = () => {
     setBrandName((prev) => (prev == type ? null : type));
     onChange();
   }
-  // 헤더 숨김 여부
-  const [isHidden, setIsHidden] = useState(false);
-  const lastScrollY = useRef(0);
-  function handleScrollDownOrUp() {
-    const scrollY = window.scrollY;
-    // 스크롤을 내리고 있다
-    if (scrollY > lastScrollY.current) {
-      setIsHidden(true);
-    } else {
-      setIsHidden(false);
-    }
-    lastScrollY.current = scrollY;
-  }
-  // 스크롤 이벤트 추가
-  useEffect(() => {
-    addEventListener("scroll", handleScrollDownOrUp);
-    // 스크롤 이벤트 삭제
-    return () => removeEventListener("scroll", handleScrollDownOrUp);
-  }, []);
-  //
+
   useEffect(() => {
     //무한스크롤링 트리거 설정
     const observer = new IntersectionObserver(
