@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     //< -- 전체 영역 -->
     <>
-      <div className="page flex flex-col items-center w-screen bg-sky-100 min-h-screen">
+      <div className="page flex flex-col items-center w-screen max-w-[475px] bg-sky-100 min-h-screen">
         {/*  <-- 모바일 부분 -->  */}
         <div className="bg-white flex flex-col max-w-[495px] m-auto min-h-screen overflow-y-auto relative">
           <Header handleOpen={handleOpen} />

@@ -39,8 +39,8 @@ function Sidebar({ handleSetOpen }: SidebarProp) {
       <ul className="flex flex-col gap-8 px-6 mt-6">
         {menuItems.map((item, index) => {
           return (
-            <Link to={item.url}>
-              <li key={index} className="flex flex-row gap-4">
+            <Link key={index} to={item.url}>
+              <li className="flex flex-row gap-4">
                 <span>{item.emoji}</span>
                 <span>{item.label}</span>
               </li>

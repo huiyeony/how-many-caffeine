@@ -46,7 +46,7 @@ function Search() {
     //전체 박스 영역 pt-13
     <Layout>
       {/* <-- 컨텐츠 박스 pt-[130] --> */}
-      <div className="flex flex-col w-[475px] pt-[130px] relative">
+      <div className="flex flex-col w-screen max-w-[475px] pt-[130px] relative">
         {/* <-- 음식/ 브랜드 검색 박스--> */}
         <div className="absolute top-0 w-full box-boarder flex flex-col gap-4 mt-2">
           <section className="flex w-full h-[54px] bg-[#fff]">
