@@ -1,19 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import Barcharts from "../components/Barcharts";
-import Filter from "../components/Filter";
-import Footer from "../components/Footer";
-import type { CoffeeItem } from "../types/CoffeeItem";
+
 import { PAGE_SIZE } from "../components/util/getPageSize";
 import { supabase } from "../supabase";
-import Sidebar from "@/components/Sidebar";
-import { AlignJustify } from "lucide-react";
+import Barcharts from "@/components/barcharts";
+import Footer from "@/components/footer";
+import Filter from "@/components/filter";
+import Layout from "@/components/layout";
+import type { CoffeeItem } from "@/types/coffee-item";
 const DATABASE_NAME = "notes";
 
 export const Home = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  function handleSetOpen(open: boolean) {
-    setOpen(open);
-  }
   const [iceType, setIceType] = useState<string | null>(null);
   const [drinkName, setDrinkName] = useState<string | null>(null);
   const [brandName, setBrandName] = useState<string | null>(null);
@@ -70,6 +66,7 @@ export const Home = () => {
     pageRef.current = 0; //페이지 번호 초기화
     setDatas([]); //데이터 초기화
   }
+
   function handleIceType(type: string) {
     setIceType((prev) => (prev == type ? null : type));
     onChange();
@@ -111,93 +108,26 @@ export const Home = () => {
   }, [iceType, drinkName, brandName, getFilteredData]);
   return (
     //< -- 전체 영역 -->
-    //< -- 헤더 부분 -->
-    //< -- 로고 --> <-- 메뉴 아이콘 -->
-    //< -- 검색바 -->
-    //< -- 필터 -->
-    // <-- 리스트 -->
-    // <-- 푸터 -->
-
-    //< -- 전체 영역 -->
-    <div className="page flex flex-col w-screen bg-sky-200 min-h-screen">
-      {/*  <-- 모바일 부분 -->  */}
-      <div className="bg-white flex flex-col max-w-[495px] m-auto min-h-screen overflow-y-auto relative">
-        {/* < -- 헤더 영역 --> */}
-        <header
-          className={`transition-transform duration-300 w-full flex flex-col max-w-[495px] bg-white`}
-        >
-          {/* <-- 헤더 로고 + 메뉴 아이콘 --> */}
-          <section className="h-[64px] flex w-full justify-between relative ">
-            <div className="w-full flex gap-2 items-center pl-4">
-              <img src="/assets/bigLogo.webp" className="w-7 object-contain " />
-              <span className="bold text-sm mr-4"> 얼마나 카페인</span>
-            </div>
-
-            {/* 창 아이콘 */}
-            <div
-              className="flex items-center justify-center px-4 cursor-pointer"
-              onClick={() => setOpen(true)}
-            >
-              <AlignJustify size={20} />
-            </div>
-          </section>
-
-          {/* <-- 검색 --> */}
-          <section className="px-3 w-full">
-            <div className="w-full bg-gray-100 rounded-xl flex flex-row gap-2 p-2 ">
-              {/* <-- 돋보기 아이콘 -->  */}
-              <div className="flex items-center">🔍</div>
-              {/* <-- 입력창 --> */}
-              <input
-                type="text"
-                placeholder="브랜드 또는 음료를 검색하세요"
-                className="w-full bg-transparent text-sm p-3 focus:outline-none"
-              />
-              {/* <-- 버튼 -->  */}
-              <div className="flex items-center mr-5">{`>`}</div>
-            </div>
-          </section>
-
-          {/* <-- 필터 -->  */}
-          <Filter
-            iceType={iceType}
-            drinkName={drinkName}
-            brandName={brandName}
-            handleBrandType={handleBrandType}
-            handleDrinksType={handleDrinksType}
-            handleIceType={handleIceType}
-          />
-        </header>
-
-        {/* 데이터 영역 */}
-        <div className="w-full max-w-[495px]">
-          {/* 실제 차트 */}
-          <Barcharts datas={datas} />
-          {/*  영역*/}
-          <div
-            ref={htmlDomRef}
-            className="text-sm text-gray-800 text-center p-4"
-          >
-            {!hasMoreRef.current ? "⚠️ 더이상 데이터가 없습니다" : ""}
-          </div>
+    <Layout>
+      {/* <-- 필터 -->  */}
+      <Filter
+        iceType={iceType}
+        drinkName={drinkName}
+        brandName={brandName}
+        handleBrandType={handleBrandType}
+        handleDrinksType={handleDrinksType}
+        handleIceType={handleIceType}
+      />
+      {/* 데이터 영역 */}
+      <div className="w-full max-w-[495px]">
+        {/* 실제 차트 */}
+        <Barcharts datas={datas} />
+        {/*  영역*/}
+        <div ref={htmlDomRef} className="text-sm text-gray-800 text-center p-4">
+          {!hasMoreRef.current ? "⚠️ 더이상 데이터가 없습니다" : ""}
         </div>
-        <Footer />
-
-        {/* <-- 불투명 배경  --> */}
-        {open && (
-          <div>
-            <div
-              className="absolute inset-0 bg-black/30 z-1 w-full h-full"
-              // 창 닫기
-              onClick={() => setOpen(false)}
-            />
-            <div className="absolute top-0 right-0 w-[280px] ">
-              {/* <-- 슬라이더--> */}
-              <Sidebar handleSetOpen={handleSetOpen} />
-            </div>
-          </div>
-        )}
       </div>
-    </div>
+      <Footer />
+    </Layout>
   );
 };
