@@ -1,6 +1,4 @@
-import { supabase } from "@/supabase";
 import { AlignJustify } from "lucide-react";
-import { useState } from "react";
 function Header({ handleOpen }: { handleOpen: () => void }) {
   return (
     <header

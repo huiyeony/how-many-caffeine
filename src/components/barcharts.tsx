@@ -1,4 +1,4 @@
-import type { CoffeeItem } from "@/types/CoffeeItem";
+import type { CoffeeItem } from "@/types/coffee-item";
 import BarchartItem from "./barchart-item";
 type BarchartsProps = {
   datas: CoffeeItem[] | null;

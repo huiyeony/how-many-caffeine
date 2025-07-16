@@ -1,7 +1,7 @@
 import { drinks } from "../data/drinks";
 import { brands } from "../data/brands";
 import { supabase } from "../supabase";
-import Button from "./Button";
+import Button from "./button";
 
 interface FilterProps {
   iceType: string | null;
