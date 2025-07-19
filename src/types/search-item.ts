@@ -4,5 +4,6 @@ export interface SearchItem {
   type: string;
   caf: string;
   ml?: string;
+  oz?: string;
   size?: string;
 }

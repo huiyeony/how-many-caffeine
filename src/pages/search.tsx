@@ -11,13 +11,15 @@ function Search() {
   // -- 🔔 테이블 조인 결과를 반환하자 --
   // -- 검색결과를 수파베이스에서 불러오자 --
   const handleSubmit = async () => {
-    // --분기문 --
+    // 분기문
+    // 공백/줄바꿈/탭을 무시하고 검색결과를 반환하도록 수정하자
+    console.log("handlesubmit 호출 ,, ");
+    console.log(search);
+    console.log(search.replace(/\s/g, ""));
     if (type == "food") {
-      const { data, error } = await supabase
-        .from("notes")
-        .select("*")
-        .ilike("prd", `%${search}%`)
-        .order("caf", { ascending: false });
+      const { data, error } = await supabase.rpc("get_joined_drink_data", {
+        search: search.replace(/\s/g, ""),
+      });
       // --로그 찍어보자
       if (error) {
         console.error(error);
@@ -27,11 +29,9 @@ function Search() {
         setData(data);
       }
     } else {
-      const { data, error } = await supabase
-        .from("notes")
-        .select("*")
-        .ilike("div", `%${search}%`)
-        .order("caf", { ascending: false });
+      const { data, error } = await supabase.rpc("get_joined_brand_data", {
+        search: search.replace(/\s/g, ""),
+      });
       // --로그 찍어보자
       if (error) {
         console.error(error);

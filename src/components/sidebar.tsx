@@ -8,7 +8,7 @@ function Sidebar({ handleSetOpen }: SidebarProp) {
     { emoji: "🏠", label: "홈", url: "/" },
     { emoji: "🍵", label: "음료 검색", url: "/search" },
     { emoji: "📍", label: "브랜드 검색", url: "/search" },
-    { emoji: "🌀", label: "커뮤니티", url: "" },
+    { emoji: "🌀", label: "커뮤니티", url: "/community" },
     { emoji: "🤔", label: "카페인 MBTI", url: "" },
     { emoji: "🤝", label: "제휴 문의", url: "" },
     { emoji: "🌸", label: "얼마나카페인 앱 소개", url: "" },

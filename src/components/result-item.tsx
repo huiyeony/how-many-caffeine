@@ -1,14 +1,7 @@
 import type { SearchItem } from "@/types/search-item";
 import Badge from "./badge";
 
-function ResultItem({
-  div,
-
-  prd,
-  caf,
-  ml = undefined,
-  size = undefined,
-}: SearchItem) {
+function ResultItem({ div, prd, caf, ml, oz, size }: SearchItem) {
   return (
     // 박스
     <div className="rounded-lg bg-white border-1 border-black p-5 text-sm ">
@@ -20,9 +13,10 @@ function ResultItem({
           {/* <-- 이름 --> */}
           <div>{prd}</div>
           {/* <-- 사이즈 및 컵용량 --> */}
-          <div>
-            {size}
-            {ml}
+          <div className="flex flex-row gap-1 text-gray-400">
+            {size ? <span>{size} </span> : ""}
+            {ml ? <span> / {ml} </span> : ""}
+            {oz ? <span>/ {oz}</span> : ""}
           </div>
         </section>
         {/* --오른쪽 -- */}
