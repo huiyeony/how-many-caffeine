@@ -2,6 +2,7 @@ import Layout from "@/components/layout";
 import ResultItem from "@/components/result-item";
 import { supabase } from "@/supabase";
 import type { SearchItem } from "@/types/search-item";
+import { ArrowRight, SearchIcon } from "lucide-react";
 import { useState } from "react";
 
 function Search() {
@@ -11,10 +12,7 @@ function Search() {
   // -- 🔔 테이블 조인 결과를 반환하자 --
   // -- 검색결과를 수파베이스에서 불러오자 --
   const handleSubmit = async () => {
-    // 분기문
     // 공백/줄바꿈/탭을 무시하고 검색결과를 반환하도록 수정하자
-    console.log("handlesubmit 호출 ,, ");
-    console.log(search);
     console.log(search.replace(/\s/g, ""));
     if (type == "food") {
       const { data, error } = await supabase.rpc("get_joined_drink_data", {
@@ -42,6 +40,13 @@ function Search() {
       }
     }
   };
+  const handleEnterKeyDown = (e: React.KeyboardEvent) => {
+    // 엔터키를 눌르면 실행할 함수
+    if (e.key == "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     //전체 박스 영역 pt-13
     <Layout>
@@ -72,11 +77,18 @@ function Search() {
             </div>
           </section>
           {/* <-- 검색 --> */}
-          <section className="px-3 w-full">
+          <section
+            className="px-3 w-full"
+            tabIndex={0}
+            onKeyDown={handleEnterKeyDown}
+          >
             <div className="w-full bg-gray-100 rounded-xl flex flex-row gap-2 p-2 ">
               {/* <-- 돋보기 아이콘 -->  */}
-              <div className="flex items-center" onClick={handleSubmit}>
-                🔍
+              <div
+                className="flex items-center justify-center"
+                onClick={handleSubmit}
+              >
+                <SearchIcon size={20} />
               </div>
               {/* <-- 입력창 --> */}
               <input
@@ -89,7 +101,9 @@ function Search() {
                 value={search}
               />
               {/* <-- 버튼 -->  */}
-              <div className="flex items-center mr-5">{`>`}</div>
+              <button className="flex items-center mr-5" onClick={handleSubmit}>
+                <ArrowRight size={20} />
+              </button>
             </div>
           </section>
           {/*  --검색 결과를 여기서 보여줍니다 -- */}
